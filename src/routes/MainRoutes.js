@@ -12,14 +12,14 @@ const BottomTab = createBottomTabNavigator()
 const MainRoutes = () => {
   return (
     <BottomTab.Navigator
-      initialRouteName='Home'
+      initialRouteName="Home"
       tabBar={(props) => <BottomMenu {...props} />}
     >
-      <BottomTab.Screen name='Home' component={HomeScreen} />
-      <BottomTab.Screen name='Favourites' component={FavouritesScreen} />
-      <BottomTab.Screen name='Movies' component={MoviesScreen} />
-      <BottomTab.Screen name='Connect' component={ConnectScreen} />
-      <BottomTab.Screen name='Settings' component={SettingsScreen} />
+      <BottomTab.Screen name="Home" component={HomeScreen} />
+      <BottomTab.Screen name="Favourites" component={FavouritesScreen} />
+      <BottomTab.Screen name="Movies" component={MoviesScreen} />
+      <BottomTab.Screen name="Connect" component={ConnectScreen} />
+      <BottomTab.Screen name="Settings" component={SettingsScreen} />
     </BottomTab.Navigator>
   )
 }
