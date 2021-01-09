@@ -1,25 +1,35 @@
+import {
+  Montserrat_400Regular,
+  Montserrat_600SemiBold,
+} from '@expo-google-fonts/montserrat'
+import { Prompt_600SemiBold } from '@expo-google-fonts/prompt'
 import { NavigationContainer } from '@react-navigation/native'
-import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import AppLoading from 'expo-app-loading'
+import { useFonts } from 'expo-font'
+import React, { useState } from 'react'
+import { ThemeProvider } from 'styled-components'
 import MainRoutes from '_routes/MainRoutes'
+import { lightTheme } from '_themes/themes'
 
 const App = () => {
+  const [theme, setTheme] = useState(lightTheme)
+  let [fontsLoaded] = useFonts({
+    Prompt_600SemiBold,
+    Montserrat_400Regular,
+    Montserrat_600SemiBold,
+  })
+
+  if (!fontsLoaded) {
+    return <AppLoading />
+  }
+
   return (
-    <NavigationContainer>
-      <View style={styles.container}>
+    <ThemeProvider theme={theme}>
+      <NavigationContainer>
         <MainRoutes />
-      </View>
-    </NavigationContainer>
+      </NavigationContainer>
+    </ThemeProvider>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    backgroundColor: '#fff',
-    flex: 1,
-    justifyContent: 'center',
-  },
-})
 
 export default App
