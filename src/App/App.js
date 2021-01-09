@@ -1,9 +1,8 @@
-import { NavigationContainer } from '@react-navigation/native';
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import MainRoutes from '_routes/MainRoutes';
+import { NavigationContainer } from '@react-navigation/native'
+import React from 'react'
+import { StyleSheet, View } from 'react-native'
+import MainRoutes from '_routes/MainRoutes'
 
-const a = 'siema';
 const App = () => {
   return (
     <NavigationContainer>
@@ -11,8 +10,8 @@ const App = () => {
         <MainRoutes />
       </View>
     </NavigationContainer>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -21,6 +20,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
   },
-});
+})
 
-export default App;
+export default App
