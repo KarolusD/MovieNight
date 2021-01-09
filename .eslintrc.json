@@ -1,0 +1,57 @@
+{
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "react-native/react-native": true
+  },
+  "plugins": ["react", "react-native", "prettier"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "airbnb",
+    "prettier"
+  ],
+  "rules": {
+    // "prettier/prettier": ["error", { "singleQuote": true, "semi": false }],
+    "prettier/prettier": "error",
+    "react/jsx-filename-extension": [
+      "warn",
+      {
+        "extensions": [".jsx", ".js", ".tsx", ".ts"]
+      }
+    ],
+    "react-native/no-unused-styles": 2,
+    "react-native/split-platform-components": 2,
+    "react-native/no-inline-styles": 2,
+    "react-native/no-raw-text": 2,
+    "react-native/sort-styles": [
+      "error",
+      "asc",
+      {
+        "ignoreClassNames": false,
+        "ignoreStyleProperties": false
+      }
+    ],
+
+    // disable unwanted rules
+    "import/no-unresolved": "off",
+    "arrow-body-style": "off",
+    "prefer-arrow-callback": "off",
+    "react/prop-types": "off",
+    "no-param-reassign": "off",
+    "no-console": "off",
+    "semi": ["error", "never"],
+    "comma-dangle": 0,
+    "max-len": 0,
+    "object-curly-spacing": 0,
+    "react/jsx-space-before-closing": 0,
+    "react/jsx-indent": 0,
+    "no-unused-expressions": 0,
+    "react/jsx-closing-bracket-location": 0
+  }
+}
