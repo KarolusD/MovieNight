@@ -1,11 +1,19 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import styled from 'styled-components'
+import ScreenTemplate from '_templates/ScreenTemplate/ScreenTemplate'
+import { HeartIcon } from '_assets/svgs/icons'
 
-const FavouritesScreen = () => {
+const Heading = styled.Text`
+  font-family: ${({ theme }) => theme.fonts.prompt.semibold};
+  font-size: ${({ theme }) => theme.fonts.sizes.h1};
+`
+
+const FavouritesScreen = ({ route }) => {
   return (
-    <View>
-      <Text>Favourites Screen!</Text>
-    </View>
+    <ScreenTemplate title={route.name}>
+      <HeartIcon color="blue" filled />
+      <Heading>Favourites Screen</Heading>
+    </ScreenTemplate>
   )
 }
 

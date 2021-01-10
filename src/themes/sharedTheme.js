@@ -10,16 +10,14 @@ const sharedTheme = {
 
     sizes: {
       // headings
-      h1: '32px',
-      h2: '28px',
-      h3: '24px',
-      h4: '20px',
-      h5: '18px',
+      h1: '20px',
+      h2: '18px',
       // body
       b1: '16px',
       b2: '14px',
-      b3: '12px',
-      b4: '10px',
+      // caption
+      c1: '12px',
+      c2: '10px',
     },
   },
   spacing: {

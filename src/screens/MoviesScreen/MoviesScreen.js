@@ -1,11 +1,19 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import styled from 'styled-components'
+import ScreenTemplate from '_templates/ScreenTemplate/ScreenTemplate'
+import { PlayIcon } from '_assets/svgs/icons'
 
-const MoviesScreen = () => {
+const Heading = styled.Text`
+  font-family: ${({ theme }) => theme.fonts.prompt.semibold};
+  font-size: ${({ theme }) => theme.fonts.sizes.h1};
+`
+
+const MoviesScreen = ({ route }) => {
   return (
-    <View>
-      <Text>Movies Screen</Text>
-    </View>
+    <ScreenTemplate title={route.name}>
+      <PlayIcon color="blue" filled />
+      <Heading>Movies Screen</Heading>
+    </ScreenTemplate>
   )
 }
 

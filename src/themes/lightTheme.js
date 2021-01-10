@@ -14,7 +14,7 @@ const lightTheme = {
     gray: '#898989',
     text: '#323232',
     transparentBrand: 'rgba(255, 215, 72, 0.1)',
-    transparentInfo: 'rgba(4, 153, 235, 0.05)',
+    transparentInfo: 'rgba(4, 153, 235, 0.1)',
     transparentBg: 'rgba(255, 255, 255, 0.9)',
     transparentSuccess: 'rgba(71, 195, 113, 0.1)',
     transparentWarning: 'rgba(223, 61, 61, 0.1)',
