@@ -1,14 +1,20 @@
-import React from 'react';
-import { Text, View } from 'react-native';
+import React from 'react'
+import styled from 'styled-components'
+import ScreenTemplate from '_templates/ScreenTemplate/ScreenTemplate'
+import { SettingsIcon } from '_assets/svgs/icons'
 
-const a = {};
+const Heading = styled.Text`
+  font-family: ${({ theme }) => theme.fonts.prompt.semibold};
+  font-size: ${({ theme }) => theme.fonts.sizes.h1};
+`
 
-const SettingsScreen = () => {
+const SettingsScreen = ({ route }) => {
   return (
-    <View>
-      <Text>Settings screen</Text>
-    </View>
-  );
-};
+    <ScreenTemplate title={route.name}>
+      <SettingsIcon color="blue" filled />
+      <Heading>Settings Screen</Heading>
+    </ScreenTemplate>
+  )
+}
 
-export default SettingsScreen;
+export default SettingsScreen

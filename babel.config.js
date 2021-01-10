@@ -20,6 +20,8 @@ module.exports = (api) => {
           ],
           alias: {
             _App: './src/App',
+            _assets: './src/assets',
+            _api: './api',
             _components: './src/components',
             _hooks: './src/hooks',
             _layout: './src/layout',

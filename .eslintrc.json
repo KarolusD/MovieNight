@@ -60,6 +60,14 @@
     "react/jsx-space-before-closing": 0,
     "react/jsx-indent": 0,
     "no-unused-expressions": 0,
-    "react/jsx-closing-bracket-location": 0
+    "react/jsx-closing-bracket-location": 0,
+    "react/jsx-props-no-spreading": [
+      "error",
+      {
+        "html": "ignore",
+        "custom": "ignore",
+        "explicitSpread": "ignore"
+      }
+    ]
   }
 }

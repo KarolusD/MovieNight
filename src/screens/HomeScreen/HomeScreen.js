@@ -1,24 +1,19 @@
 import React from 'react'
-import { Text } from 'react-native'
 import styled from 'styled-components'
-
-const Container = styled.View`
-  flex: 1;
-  background-color: papayawhip;
-  justify-content: center;
-  align-items: center;
-`
+import ScreenTemplate from '_templates/ScreenTemplate/ScreenTemplate'
+import { CategoryIcon } from '_assets/svgs/icons'
 
 const Heading = styled.Text`
   font-family: ${({ theme }) => theme.fonts.prompt.semibold};
   font-size: ${({ theme }) => theme.fonts.sizes.h1};
 `
 
-const HomeScreen = () => {
+const HomeScreen = ({ route }) => {
   return (
-    <Container>
+    <ScreenTemplate title={route.name}>
+      <CategoryIcon color="blue" filled />
       <Heading>Home Screen</Heading>
-    </Container>
+    </ScreenTemplate>
   )
 }
 

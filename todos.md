@@ -1,0 +1,13 @@
+- [x] Setup project
+- [x] Setup eslint
+- [x] Setup prettier
+- [x] Setup husky and lint-staged
+- [x] Setup main routes
+- [x] Create a template with expo status bar and bottom navigation
+- [x] Create container component (View) to align items to the middle
+- [x] Load fonts into the App
+- [x] Hook up icons
+- [x] Create bottom navigation component
+- [ ] Prepare home screen
+- [ ] Carousel with recommended moves
+- [ ] Trending now
