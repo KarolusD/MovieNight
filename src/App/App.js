@@ -7,13 +7,16 @@ import { NavigationContainer } from '@react-navigation/native'
 import AppLoading from 'expo-app-loading'
 import { useFonts } from 'expo-font'
 import React, { useState } from 'react'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { ThemeProvider } from 'styled-components'
-import MainRoutes from '_routes/MainRoutes'
-import { lightTheme } from '_themes/themes'
+import MainNavigation from '_navigation/MainNavigation/MainNavigation'
+import { lightTheme, darkTheme } from '_themes'
 
 const App = () => {
-  const [theme, setTheme] = useState(lightTheme)
-  let [fontsLoaded] = useFonts({
+  // TODO: Create custom hook (useTheme) with useContext, useState, useEffect
+  const [isLight, setIsLight] = useState(false)
+
+  const [fontsLoaded] = useFonts({
     Prompt_600SemiBold,
     Montserrat_400Regular,
     Montserrat_600SemiBold,
@@ -24,10 +27,12 @@ const App = () => {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <NavigationContainer>
-        <MainRoutes />
-      </NavigationContainer>
+    <ThemeProvider theme={isLight ? lightTheme : darkTheme}>
+      <SafeAreaProvider>
+        <NavigationContainer>
+          <MainNavigation />
+        </NavigationContainer>
+      </SafeAreaProvider>
     </ThemeProvider>
   )
 }

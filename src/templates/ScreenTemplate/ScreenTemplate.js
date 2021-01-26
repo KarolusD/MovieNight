@@ -1,15 +1,18 @@
 import { StatusBar } from 'expo-status-bar'
-import React from 'react'
-import Container from '_components/Container/Container'
-import TopBar from '_components/TopBar/TopBar'
+import React, { useContext } from 'react'
+import { ThemeContext } from 'styled-components'
+import { ScrollContainer, ViewContainer } from '_components/Containers'
 
-const ScreenTemplate = ({ children, title }) => {
+const ScreenTemplate = ({ children }) => {
+  const theme = useContext(ThemeContext)
   return (
-    <Container>
-      <StatusBar style="dark" />
-      <TopBar title={title} />
-      {children}
-    </Container>
+    <ViewContainer edges={['right', 'bottom', 'left']}>
+      <StatusBar
+        style={theme.mode === 'light' ? 'dark' : 'light'}
+        translucent
+      />
+      <ScrollContainer>{children}</ScrollContainer>
+    </ViewContainer>
   )
 }
 

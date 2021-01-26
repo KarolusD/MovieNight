@@ -1,7 +1,8 @@
-import AddUserIcon from './AddUserIcon'
 import CategoryIcon from './CategoryIcon'
 import HeartIcon from './HeartIcon'
+import InfoIcon from './InfoIcon'
 import PlayIcon from './PlayIcon'
 import SettingsIcon from './SettingsIcon'
+import TwoUsers from './TwoUsers'
 
-export { AddUserIcon, CategoryIcon, HeartIcon, PlayIcon, SettingsIcon }
+export { CategoryIcon, HeartIcon, InfoIcon, PlayIcon, SettingsIcon, TwoUsers }

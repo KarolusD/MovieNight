@@ -4,10 +4,15 @@
 - [x] Setup husky and lint-staged
 - [x] Setup main routes
 - [x] Create a template with expo status bar and bottom navigation
-- [x] Create container component (View) to align items to the middle
+- [x] Create ViewContainer component (View) to align items to the middle
 - [x] Load fonts into the App
 - [x] Hook up icons
 - [x] Create bottom navigation component
-- [ ] Prepare home screen
-- [ ] Carousel with recommended moves
-- [ ] Trending now
+- [x] Prepare home screen
+- [x] PostersSlider component (take array of posters)
+- [x] Poster component (small/medium/big)
+- [x] Use posters slider to re-create trending now component
+- [ ] Prepare Favourites screen
+- [ ] Make 2-tab component
+- [ ] Add Icons to HeaderBar
+- [ ] 

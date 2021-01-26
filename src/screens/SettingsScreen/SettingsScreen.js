@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import ScreenTemplate from '_templates/ScreenTemplate/ScreenTemplate'
 import { SettingsIcon } from '_assets/svgs/icons'
+import PropTypes from 'prop-types'
 
 const Heading = styled.Text`
   font-family: ${({ theme }) => theme.fonts.prompt.semibold};
@@ -10,11 +11,15 @@ const Heading = styled.Text`
 
 const SettingsScreen = ({ route }) => {
   return (
-    <ScreenTemplate title={route.name}>
+    <ScreenTemplate>
       <SettingsIcon color="blue" filled />
       <Heading>Settings Screen</Heading>
     </ScreenTemplate>
   )
+}
+
+SettingsScreen.propTypes = {
+  route: PropTypes.object,
 }
 
 export default SettingsScreen

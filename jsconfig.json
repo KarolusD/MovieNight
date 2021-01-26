@@ -1,17 +1,17 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
     "moduleResolution": "node",
+    "baseUrl": ".",
     /* Base directory to resolve non-absolute module names. */
     "paths": {
       "_App": ["./App"],
       "_assets": ["./assets"],
       "_api": ["./api"],
       "_components": ["./components"],
+      "_navigation": ["./navigation"],
       "_hooks": ["./hooks"],
       "_screens": ["./screens"],
       "_stores": ["./stores"],
-      "_routes": ["./routes"],
       "_templates": ["./templates"],
       "_utils": ["./utils"]
     }

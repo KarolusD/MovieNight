@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import {
-  AddUserIcon,
+  TwoUsers,
   CategoryIcon,
   HeartIcon,
   PlayIcon,
@@ -16,7 +16,7 @@ const BottomMenuTabIcon = ({ name, isFocused }) => {
     Home: <CategoryIcon color={color} filled={isFocused} />,
     Favourites: <HeartIcon color={color} filled={isFocused} />,
     Movies: <PlayIcon color={color} filled={isFocused} />,
-    Connect: <AddUserIcon color={color} filled={isFocused} />,
+    Connect: <TwoUsers color={color} filled={isFocused} />,
     Settings: <SettingsIcon color={color} filled={isFocused} />,
   }
 
