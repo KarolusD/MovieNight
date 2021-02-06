@@ -19,7 +19,7 @@ const FlexWrapper = styled.View`
   justify-content: space-between;
 `
 
-const HomeScreen = ({ route }) => {
+const HomeScreen = ({ navigation, route }) => {
   const theme = useContext(ThemeContext)
 
   // TODO: Create custom hook (useRecommendedFilms) with api call, useState and useEffect
@@ -44,7 +44,14 @@ const HomeScreen = ({ route }) => {
         title="Recommended"
         options={{
           displayButton: () => (
-            <Button type="link" title="See all" color={theme.colors.info} />
+            <Button
+              type="link"
+              title="See all"
+              color={theme.colors.info}
+              onPress={() =>
+                navigation.navigate('Favourites', { screen: 'Recommended' })
+              }
+            />
           ),
         }}
       >

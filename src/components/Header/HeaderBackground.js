@@ -20,18 +20,15 @@ const HeaderBlur = styled(BlurView)`
   height: 96px;
 `
 
-const HeaderBackground = ({children}) => {
+const HeaderBackground = ({ children }) => {
   const theme = useContext(ThemeContext)
   return (
-      <HeaderBlur
-        intensity={100}
-        tint={theme.mode === 'dark' ? 'dark' : 'default'}
-      >
-      <HeaderContainer>
-        {children}
-      </HeaderContainer>
-
-      </HeaderBlur>
+    <HeaderBlur
+      intensity={100}
+      tint={theme.mode === 'dark' ? 'dark' : 'default'}
+    >
+      <HeaderContainer>{children}</HeaderContainer>
+    </HeaderBlur>
   )
 }
 

@@ -6,7 +6,7 @@ const headerOptions = (options) => {
   const { title } = options
   return {
     headerTransparent: true,
-    headerBackground: () => <HeaderBackground />,
+    headerBackground: (props) => <HeaderBackground {...props} />,
     headerTitle: () => <HeaderTitle title={title} />,
     ...options,
   }

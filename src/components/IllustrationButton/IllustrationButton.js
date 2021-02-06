@@ -7,7 +7,7 @@ const StyledImageView = styled.View`
   position: absolute;
   left: 0;
   bottom: -1px;
-  margin-left: -24px;
+  margin-left: -22px;
 `
 
 const StyledTextView = styled.View`
@@ -18,6 +18,10 @@ const StyledTextView = styled.View`
 const IllustrationButtonContainer = styled.TouchableOpacity`
   background-color: ${({ theme }) => theme.colors.pureBg};
   border-radius: 16px;
+  border-bottom-left-radius: ${({ variant }) =>
+    variant === 'right' ? '16px' : 0};
+  border-bottom-right-radius: ${({ variant }) =>
+    variant === 'left' ? '16px' : 0};
   border: ${({ borderColor }) => `1px solid ${borderColor}`};
   height: 80px;
   width: 48%;

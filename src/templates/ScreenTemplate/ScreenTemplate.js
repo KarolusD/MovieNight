@@ -3,7 +3,7 @@ import React, { useContext } from 'react'
 import { ThemeContext } from 'styled-components'
 import { ScrollContainer, ViewContainer } from '_components/Containers'
 
-const ScreenTemplate = ({ children }) => {
+const ScreenTemplate = ({ children, paddingTop }) => {
   const theme = useContext(ThemeContext)
   return (
     <ViewContainer edges={['right', 'bottom', 'left']}>
@@ -11,7 +11,7 @@ const ScreenTemplate = ({ children }) => {
         style={theme.mode === 'light' ? 'dark' : 'light'}
         translucent
       />
-      <ScrollContainer>{children}</ScrollContainer>
+      <ScrollContainer paddingTop={paddingTop}>{children}</ScrollContainer>
     </ViewContainer>
   )
 }
