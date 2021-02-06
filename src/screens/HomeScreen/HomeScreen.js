@@ -4,7 +4,7 @@ import styled, { ThemeContext } from 'styled-components'
 import { RECOMMENDED, TRENDING } from '_api/constants.js'
 import { InfoIcon } from '_assets/svgs/icons'
 import Button from '_components/Button/Button'
-import Posters from '_components/Posters/Posters'
+import PostersCarousel from '_components/PostersCarousel/PostersCarousel'
 import Tabs from '_components/Tabs/Tabs'
 import ScreenTemplate from '_templates/ScreenTemplate/ScreenTemplate'
 import IllustrationButton from '_components/IllustrationButton/IllustrationButton'
@@ -61,7 +61,7 @@ const HomeScreen = ({ navigation, route }) => {
           setActiveTab={setActiveTab}
           setResults={setRecommended}
         />
-        <Posters data={recommended} posterSize="large" />
+        <PostersCarousel data={recommended} posterSize="large" />
       </Section>
       <Section
         title="Trending"
@@ -71,7 +71,7 @@ const HomeScreen = ({ navigation, route }) => {
           ),
         }}
       >
-        <Posters data={trending} posterSize="medium" />
+        <PostersCarousel data={trending} posterSize="medium" />
       </Section>
       <Section
         title="Let us choose for you"
