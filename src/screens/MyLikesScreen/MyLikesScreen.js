@@ -1,19 +1,53 @@
-import React, { useLayoutEffect } from 'react'
-import styled from 'styled-components'
-import ScreenTemplate from '_templates/ScreenTemplate/ScreenTemplate'
-import { SettingsIcon } from '_assets/svgs/icons'
 import PropTypes from 'prop-types'
+import React, { useEffect, useState } from 'react'
+import styled from 'styled-components'
+import { MY_LIKES } from '_api/constants'
+import Poster from '_components/Poster/Poster'
+import ScreenTemplate from '_templates/ScreenTemplate/ScreenTemplate'
+import { Dimensions } from 'react-native'
 
-const Heading = styled.Text`
-  font-family: ${({ theme }) => theme.fonts.prompt.semibold};
-  font-size: ${({ theme }) => theme.fonts.sizes.h1};
+const { width } = Dimensions.get('window')
+const POSTER_WIDTH = 74
+
+const PostersGrid = styled.FlatList`
+  padding-top: 180px;
+  width: 100%;
+  left: ${({ numColumns }) =>
+    `${width / 2 - (numColumns * (POSTER_WIDTH + 16) - 16) / 2}px`};
 `
 
-const MyLikesScreen = ({ route, navigation }) => {
+const PosterButton = styled.TouchableOpacity``
+
+const MyLikesScreen = ({ route }) => {
+  const [numColumns, setNumColumns] = useState(4)
+
+  useEffect(() => {
+    if (width <= 360) {
+      setNumColumns(3)
+    }
+  }, [width])
+
   return (
-    <ScreenTemplate paddingTop="180px">
-      <SettingsIcon color="blue" filled />
-      <Heading>My Likes Screen</Heading>
+    <ScreenTemplate>
+      <PostersGrid
+        contentInset={{ bottom: 240 }}
+        data={MY_LIKES}
+        numColumns={numColumns}
+        keyExtractor={(item) => item}
+        showsVerticalScrollIndicator={false}
+        renderItem={({ item }) => (
+          <PosterButton>
+            <Poster
+              style={{
+                marginBottom: 16,
+                marginRight: 16,
+              }}
+              size="medium"
+              uri={item}
+            />
+          </PosterButton>
+        )}
+      />
     </ScreenTemplate>
   )
 }

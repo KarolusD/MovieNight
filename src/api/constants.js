@@ -163,3 +163,11 @@ export const TRENDING = [
     poster: 'https://assets.puzzlefactory.pl/puzzle/231/006/original.jpg',
   },
 ]
+
+export const MY_LIKES = [
+  'https://cdn.shopify.com/s/files/1/0969/9128/products/Joker_-_Joaquin_Phoenix_-_Hollywood_Action_Movie_Poster_08339151-d79a-4b7b-8bc7-dcad04881c2c.jpg?v=1573629460',
+  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR10aIjTtXPtR0Ge7oooHz3zfgny2kc3BwAnw&usqp=CAU',
+  'https://assets.puzzlefactory.pl/puzzle/231/006/original.jpg',
+  'https://cdn.shopify.com/s/files/1/0057/3728/3618/products/4c177c2b7f7bb9a679f089bcb50f844e_3e89eb5d-ffbd-4033-a00f-e595a3ef2e2a_240x360_crop_center.progressive.jpg?v=1573587540',
+  'https://images-na.ssl-images-amazon.com/images/I/41Vxs2tSNHL._AC_.jpg',
+]

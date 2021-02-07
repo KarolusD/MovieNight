@@ -8,24 +8,24 @@ const Image = styled.Image`
     if (size === 'medium') return '8px'
     if (size === 'small') return '6px'
   }};
-  margin-right: ${({ theme }) => theme.spacing.s};
   height: ${({ size }) => {
     if (size === 'large') return '200px'
     if (size === 'medium') return '108px'
     if (size === 'small') return '60px'
   }};
+  margin: ${({ margin }) => (margin ? `${margin}` : 0)};
   width: ${({ size }) => {
     if (size === 'large') return '132px'
     if (size === 'medium') return '74px'
     if (size === 'small') return '40px'
   }};
 `
-const Poster = ({ size, uri }) => {
-  return <Image size={size} source={{ uri }} />
+const Poster = ({ size, style, uri }) => {
+  return <Image size={size} source={{ uri }} style={style} />
 }
 
 Poster.propTypes = {
-  size: PropTypes.string.isRequired,
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
   uri: PropTypes.string.isRequired,
 }
 
