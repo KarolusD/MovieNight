@@ -39,7 +39,7 @@ const HomeScreen = ({ navigation, route }) => {
   }, [])
 
   return (
-    <ScreenTemplate>
+    <ScreenTemplate container="static">
       <Section
         title="Recommended"
         options={{
