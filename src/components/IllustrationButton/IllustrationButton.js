@@ -17,7 +17,7 @@ const StyledTextView = styled.View`
 
 const IllustrationButtonContainer = styled.TouchableOpacity`
   background-color: ${({ theme }) => theme.colors.pureBg};
-  border-radius: 16px;
+  border-radius: 12px;
   border-bottom-left-radius: ${({ variant }) =>
     variant === 'right' ? '16px' : 0};
   border-bottom-right-radius: ${({ variant }) =>

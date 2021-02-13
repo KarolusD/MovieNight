@@ -19,7 +19,7 @@ const Tabs = ({ activeTab, data, setActiveTab, setResults }) => {
   }
   return (
     <TabsList
-      contentContainerStyle={{ paddingRight: 16 }}
+      contentContainerStyle={{ paddingRight: 24 }}
       data={data}
       keyExtractor={(item) => item._id}
       ref={tabsRef}

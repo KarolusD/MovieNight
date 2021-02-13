@@ -11,14 +11,6 @@ const ParagraphText = styled.Text`
     },
     primary,
   }) => (primary ? p1 : p2)};
-  line-height: ${({
-    theme: {
-      fonts: {
-        sizes: { p1, p2 },
-      },
-    },
-    primary,
-  }) => (primary ? p1 * 1.5 : p2 * 1.5)};
 `
 
 export default ParagraphText

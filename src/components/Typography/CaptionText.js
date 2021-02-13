@@ -18,12 +18,6 @@ const CaptionText = styled.Text`
     },
     primary,
   }) => (primary ? c1 : c2)};
-  line-height: ${({
-    theme: {
-      fonts: {
-        sizes: { c1, c2 },
-      },
-    },
-    primary,
-  }) => (primary ? c1 * 1.5 : c2 * 1.5)};
 `
+
+export default CaptionText

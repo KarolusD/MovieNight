@@ -85,7 +85,7 @@ const HomeScreen = ({ navigation, route }) => {
             illustrationHeight={80}
             illustrationWight={80}
             source={theme.mode === 'light' ? forMeImage_Light : forMeImage_Dark}
-            title={`Choose only for me`}
+            title="Choose only for me"
             variant="left"
           />
           <IllustrationButton
@@ -95,7 +95,7 @@ const HomeScreen = ({ navigation, route }) => {
             source={
               theme.mode === 'light' ? anyRoomImage_Light : anyRoomImage_Dark
             }
-            title={`Choose for any room`}
+            title="Choose for any room"
             variant="right"
           />
         </FlexWrapper>

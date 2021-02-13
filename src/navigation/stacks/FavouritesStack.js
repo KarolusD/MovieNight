@@ -2,9 +2,10 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import { createStackNavigator } from '@react-navigation/stack'
 import React, { useEffect } from 'react'
 import { headerOptions } from '_components/Header'
+import TopTabs from '_components/TopTabs/TopTabs'
+import FavouritesDetailsScreen from '_screens/FavouritesDetailsScreen/FavouritesDetailsScreen'
 import MyLikesScreen from '_screens/MyLikesScreen/MyLikesScreen'
 import RecommendedScreen from '_screens/RecommendedScreen/RecommendedScreen'
-import TopTabs from '_components/TopTabs/TopTabs'
 
 const TabStack = createMaterialTopTabNavigator()
 
@@ -35,6 +36,16 @@ const FavouritesStack = ({ route }) => {
       >
         {(props) => <FavouritesTabStack {...props} route={route} />}
       </Stack.Screen>
+      <Stack.Screen
+        options={() => headerOptions({ title: 'My like details' })}
+        name="My likes details"
+        component={FavouritesDetailsScreen}
+      />
+      <Stack.Screen
+        options={() => headerOptions({ title: 'Recommended details' })}
+        name="Recommended details"
+        component={FavouritesDetailsScreen}
+      />
     </Stack.Navigator>
   )
 }

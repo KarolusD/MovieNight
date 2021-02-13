@@ -4,9 +4,9 @@ import styled from 'styled-components'
 
 const Image = styled.Image`
   border-radius: ${({ size }) => {
-    if (size === 'large') return '16px'
-    if (size === 'medium') return '8px'
-    if (size === 'small') return '6px'
+    if (size === 'large') return '12px'
+    if (size === 'medium') return '12px'
+    if (size === 'small') return '8px'
   }};
   height: ${({ size }) => {
     if (size === 'large') return '200px'

@@ -36,6 +36,30 @@ export const RECOMMENDED = [
         shortDescription: 'Lorem ipsum',
         longDescription: 'Lorem ipsum amit dor',
       },
+      {
+        poster:
+          'https://m.media-amazon.com/images/I/81u7YEO-iJL._AC_SL1500_.jpg',
+        title: 's',
+        type: ['fantasy'],
+        shortDescription: 'Lorem ipsum',
+        longDescription: 'Lorem ipsum amit dor',
+      },
+      {
+        poster:
+          'https://m.media-amazon.com/images/I/81u7YEO-iJL._AC_SL1500_.jpg',
+        title: 'a',
+        type: ['fantasy'],
+        shortDescription: 'Lorem ipsum',
+        longDescription: 'Lorem ipsum amit dor',
+      },
+      {
+        poster:
+          'https://m.media-amazon.com/images/I/81u7YEO-iJL._AC_SL1500_.jpg',
+        title: 'b',
+        type: ['fantasy'],
+        shortDescription: 'Lorem ipsum',
+        longDescription: 'Lorem ipsum amit dor',
+      },
     ],
   },
   {
