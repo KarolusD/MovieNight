@@ -1,9 +1,8 @@
 import React, { useContext } from 'react'
+import { ArrowRightSquareIcon } from '_assets/svgs/icons'
 import styled, { ThemeContext } from 'styled-components'
-import { HeartIcon } from '_assets/svgs/icons'
 import Poster from '_components/Poster/Poster'
 import { ButtonText, CaptionText } from '_components/Typography'
-import { ArrowRightSquare } from '_assets/svgs/icons'
 
 const Card = styled.TouchableOpacity`
   background: ${({ theme }) => theme.colors.pureBg};
@@ -44,7 +43,11 @@ const Arrow = styled.View`
 const FilmCard = ({ uri, navigation }) => {
   const theme = useContext(ThemeContext)
   return (
-    <Card onPress={() => navigation.navigate('Recommended details')}>
+    <Card
+      onPress={() =>
+        navigation.navigate('Film details', { title: 'Recommended' })
+      }
+    >
       <FilmMedia>
         <Poster size="small" uri={uri}></Poster>
         <FilmInfo>
@@ -53,7 +56,7 @@ const FilmCard = ({ uri, navigation }) => {
         </FilmInfo>
       </FilmMedia>
       <Arrow>
-        <ArrowRightSquare
+        <ArrowRightSquareIcon
           color={
             theme.mode === 'light' ? theme.colors.text : theme.colors.background
           }

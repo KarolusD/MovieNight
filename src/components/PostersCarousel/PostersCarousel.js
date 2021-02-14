@@ -1,15 +1,20 @@
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import Poster from '_components/Poster/Poster'
-import { ThemeContext } from 'styled-components'
 
 const PostersList = styled.FlatList`
   padding-left: ${({ theme }) => theme.spacing.m};
 `
 
-const PostersCarousel = ({ data, posterSize }) => {
-  // TODO: Scroll to start when changing tabs
+const PosterButton = styled.TouchableOpacity``
+
+const PostersCarousel = ({ data, posterSize, title, toggle }) => {
+  const PostersListRef = useRef(null)
+
+  useEffect(() => {
+    PostersListRef?.current?.scrollToOffset({ offset: 0, animated: true })
+  }, [data])
 
   return (
     <PostersList
@@ -18,17 +23,20 @@ const PostersCarousel = ({ data, posterSize }) => {
       keyExtractor={(item) => item.title}
       horizontal
       showsHorizontalScrollIndicator={false}
+      ref={PostersListRef}
       renderItem={({ item, index }) => (
-        <Poster
-          style={{
-            marginRight: 16,
-          }}
-          onPress={() => {
-            console.log(item, index)
-          }}
-          size={posterSize}
-          uri={item.poster}
-        />
+        <PosterButton onPress={() => toggle(title)}>
+          <Poster
+            style={{
+              marginRight: 16,
+            }}
+            onPress={() => {
+              console.log('elo z poster list')
+            }}
+            size={posterSize}
+            uri={item.poster}
+          />
+        </PosterButton>
       )}
     />
   )
@@ -37,6 +45,8 @@ const PostersCarousel = ({ data, posterSize }) => {
 PostersCarousel.propTypes = {
   data: PropTypes.array.isRequired,
   posterSize: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  toggle: PropTypes.func.isRequired,
 }
 
 export default PostersCarousel

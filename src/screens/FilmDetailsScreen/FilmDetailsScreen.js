@@ -9,17 +9,13 @@ const Heading = styled.Text`
   font-size: ${({ theme }) => theme.fonts.sizes.h1};
 `
 
-const FavouritesDetailsScreen = ({ route }) => {
+const FilmDetailsScreen = () => {
   return (
-    <ScreenTemplate>
+    <ScreenTemplate container="scroll">
       <PlayIcon color="blue" filled />
-      <Heading>Favourites Screen</Heading>
+      <Heading>Film details Screen</Heading>
     </ScreenTemplate>
   )
 }
 
-FavouritesDetailsScreen.propTypes = {
-  route: PropTypes.object,
-}
-
-export default FavouritesDetailsScreen
+export default FilmDetailsScreen

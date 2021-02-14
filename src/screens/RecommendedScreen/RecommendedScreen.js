@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState, useRef } from 'react'
 import styled, { ThemeContext } from 'styled-components'
 import { RECOMMENDED } from '_api/constants'
 import FilmCard from '_components/FilmCard/FilmCard'
@@ -24,6 +24,8 @@ const TabsWrapper = styled.View`
 const RecommendedScreen = ({ navigation }) => {
   const theme = useContext(ThemeContext)
 
+  const recommendedListRef = useRef(null)
+
   const [activeTab, setActiveTab] = useState('For you')
   const [recommended, setRecommended] = useState([])
   const [tabs, setTabs] = useState([])
@@ -34,6 +36,10 @@ const RecommendedScreen = ({ navigation }) => {
       RECOMMENDED.filter(({ title }) => title === activeTab)[0].recommended
     )
   }, [])
+
+  useEffect(() => {
+    recommendedListRef?.current?.scrollToOffset({ offset: 0, animated: true })
+  }, [activeTab])
 
   return (
     <ScreenTemplate paddingTop="0" container="static">
@@ -52,6 +58,7 @@ const RecommendedScreen = ({ navigation }) => {
         }}
         data={recommended}
         keyExtractor={(item) => item.title}
+        ref={recommendedListRef}
         renderItem={({ item }) => (
           <FilmCard navigation={navigation} uri={item.poster} />
         )}

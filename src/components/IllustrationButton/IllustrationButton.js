@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Image from '_components/Image/Image'
 import { ButtonText } from '_components/Typography'
+import PropTypes from 'prop-types'
 
 const StyledImageView = styled.View`
   position: absolute;
@@ -66,6 +67,16 @@ const IllustrationButton = ({
       </StyledTextView>
     </IllustrationButtonContainer>
   )
+}
+
+IllustrationButton.propTypes = {
+  borderColor: PropTypes.string,
+  illustrationWidth: PropTypes.number,
+  illustrationHeight: PropTypes.number,
+  onPress: PropTypes.func.isRequired,
+  source: PropTypes.element.isRequired,
+  title: PropTypes.string.isRequired,
+  variant: PropTypes.string.isRequired,
 }
 
 export default IllustrationButton

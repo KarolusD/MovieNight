@@ -2,15 +2,18 @@ import PropTypes from 'prop-types'
 import React, { useContext, useEffect, useState } from 'react'
 import styled, { ThemeContext } from 'styled-components'
 import { RECOMMENDED, TRENDING } from '_api/constants.js'
+import { anyRoomImage_Dark, forMeImage_Dark } from '_assets/images/darkTheme'
+import { anyRoomImage_Light, forMeImage_Light } from '_assets/images/lightTheme'
 import { InfoIcon } from '_assets/svgs/icons'
 import Button from '_components/Button/Button'
-import PostersCarousel from '_components/PostersCarousel/PostersCarousel'
-import Tabs from '_components/Tabs/Tabs'
-import ScreenTemplate from '_templates/ScreenTemplate/ScreenTemplate'
 import IllustrationButton from '_components/IllustrationButton/IllustrationButton'
-import { forMeImage_Light, anyRoomImage_Light } from '_assets/images/lightTheme'
-import { forMeImage_Dark, anyRoomImage_Dark } from '_assets/images/darkTheme'
+import Modal from '_components/Modal/Modal'
+import PostersCarousel from '_components/PostersCarousel/PostersCarousel'
 import Section from '_components/Section/Section'
+import Tabs from '_components/Tabs/Tabs'
+import useModal from '_hooks/useModal'
+import FilmDetailsScreen from '_screens/FilmDetailsScreen/FilmDetailsScreen'
+import ScreenTemplate from '_templates/ScreenTemplate/ScreenTemplate'
 
 const FlexWrapper = styled.View`
   flex-direction: row;
@@ -21,6 +24,8 @@ const FlexWrapper = styled.View`
 
 const HomeScreen = ({ navigation, route }) => {
   const theme = useContext(ThemeContext)
+
+  const { toggle, isVisible, title } = useModal(false)
 
   // TODO: Create custom hook (useRecommendedFilms) with api call, useState and useEffect
   const [tabs, setTabs] = useState([])
@@ -49,19 +54,28 @@ const HomeScreen = ({ navigation, route }) => {
               title="See all"
               color={theme.colors.info}
               onPress={() =>
-                navigation.navigate('Favourites', { screen: 'Recommended' })
+                navigation.navigate('Favourites', {
+                  screen: 'Recommended',
+                })
               }
             />
           ),
         }}
       >
-        <Tabs
-          data={tabs}
-          activeTab={activeTab}
-          setActiveTab={setActiveTab}
-          setResults={setRecommended}
+        {tabs.length > 1 && (
+          <Tabs
+            data={tabs}
+            activeTab={activeTab}
+            setActiveTab={setActiveTab}
+            setResults={setRecommended}
+          />
+        )}
+        <PostersCarousel
+          data={recommended}
+          posterSize="large"
+          title="Recommended"
+          toggle={toggle}
         />
-        <PostersCarousel data={recommended} posterSize="large" />
       </Section>
       <Section
         title="Trending"
@@ -71,7 +85,12 @@ const HomeScreen = ({ navigation, route }) => {
           ),
         }}
       >
-        <PostersCarousel data={trending} posterSize="medium" />
+        <PostersCarousel
+          data={trending}
+          posterSize="medium"
+          title="Trending"
+          toggle={toggle}
+        />
       </Section>
       <Section
         title="Let us choose for you"
@@ -100,6 +119,9 @@ const HomeScreen = ({ navigation, route }) => {
           />
         </FlexWrapper>
       </Section>
+      <Modal isVisible={isVisible} title={title} toggle={toggle} isSwipeable>
+        <FilmDetailsScreen />
+      </Modal>
     </ScreenTemplate>
   )
 }

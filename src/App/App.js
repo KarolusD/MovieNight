@@ -9,12 +9,12 @@ import { useFonts } from 'expo-font'
 import React, { useState } from 'react'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { ThemeProvider } from 'styled-components'
-import MainNavigation from '_navigation/MainNavigation/MainNavigation'
+import BottomNavigation from '_navigation/BottomNavigation/BottomNavigation'
 import { lightTheme, darkTheme } from '_themes'
 
 const App = () => {
   // TODO: Create custom hook (useTheme) with useContext, useState, useEffect
-  const [isLight, setIsLight] = useState(false)
+  const [isDark, setIsDark] = useState(true)
 
   const [fontsLoaded] = useFonts({
     Prompt_600SemiBold,
@@ -27,10 +27,10 @@ const App = () => {
   }
 
   return (
-    <ThemeProvider theme={isLight ? lightTheme : darkTheme}>
+    <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
       <SafeAreaProvider>
         <NavigationContainer>
-          <MainNavigation />
+          <BottomNavigation />
         </NavigationContainer>
       </SafeAreaProvider>
     </ThemeProvider>

@@ -9,17 +9,13 @@ const Heading = styled.Text`
   font-size: ${({ theme }) => theme.fonts.sizes.h1};
 `
 
-const ConnectScreen = ({ route }) => {
+const ConnectScreen = () => {
   return (
     <ScreenTemplate>
       <TwoUsers color="blue" filled />
       <Heading>Connect Screen</Heading>
     </ScreenTemplate>
   )
-}
-
-ConnectScreen.propTypes = {
-  route: PropTypes.object,
 }
 
 export default ConnectScreen

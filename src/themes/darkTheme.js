@@ -17,7 +17,7 @@ const darkTheme = {
     transparentBrand: 'rgba(252, 219, 103, 0.1)',
     transparentInfo: 'rgba(85, 186, 242, 0.15)',
     transparentBg: 'rgba(0, 0, 0, 0.5)',
-    transparentPureBg: 'rgba(0, 0, 0, 0.4)',
+    transparentPureBg: 'rgba(0, 0, 0, 0.85)',
     transparentSuccess: 'rgba(71, 195, 113, 0.1)',
     transparentWarning: 'rgba(223, 61, 61, 0.1)',
   },

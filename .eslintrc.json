@@ -45,14 +45,6 @@
     "react/prop-types": "off",
     "no-param-reassign": "off",
     "no-console": "off",
-    "react/jsx-props-no-spreading": [
-      "error",
-      {
-        "html": "ignore",
-        "custom": "ignore",
-        "explicitSpread": "ignore"
-      }
-    ],
     "semi": ["error", "never"],
     "comma-dangle": 0,
     "max-len": 0,

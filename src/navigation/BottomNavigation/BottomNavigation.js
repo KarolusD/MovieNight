@@ -11,7 +11,7 @@ import {
 
 const BottomTab = createBottomTabNavigator()
 
-const MainNavigation = () => {
+const BottomNavigation = () => {
   return (
     <BottomTab.Navigator
       initialRouteName="Home"
@@ -26,4 +26,4 @@ const MainNavigation = () => {
   )
 }
 
-export default MainNavigation
+export default BottomNavigation

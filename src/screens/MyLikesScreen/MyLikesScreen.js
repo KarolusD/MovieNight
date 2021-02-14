@@ -19,7 +19,7 @@ const PostersGrid = styled.FlatList`
 
 const PosterButton = styled.TouchableOpacity``
 
-const MyLikesScreen = () => {
+const MyLikesScreen = ({ navigation }) => {
   const theme = useContext(ThemeContext)
 
   const [numColumns, setNumColumns] = useState(4)
@@ -39,7 +39,11 @@ const MyLikesScreen = () => {
         keyExtractor={(item) => item}
         showsVerticalScrollIndicator={false}
         renderItem={({ item }) => (
-          <PosterButton>
+          <PosterButton
+            onPress={() =>
+              navigation.navigate('Film details', { title: 'My likes' })
+            }
+          >
             <Poster
               style={{
                 marginBottom: 16,

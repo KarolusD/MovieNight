@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Svg, { Path } from 'react-native-svg'
 
-function ArrowRightSquare(props) {
+function ArrowRightSquareIcon(props) {
   if (props.filled) {
     return (
       <Svg
@@ -48,4 +48,4 @@ function ArrowRightSquare(props) {
   )
 }
 
-export default ArrowRightSquare
+export default ArrowRightSquareIcon
