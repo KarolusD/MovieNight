@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import styled, { ThemeContext } from 'styled-components'
 import { MY_LIKES } from '_api/constants'
 import Poster from '_components/Poster/Poster'
-import ScreenTemplate from '_templates/ScreenTemplate/ScreenTemplate'
+import ScreenTemplate from '_templates/ScreenTemplate'
 import { Dimensions } from 'react-native'
 import TopGradient from '_components/TopGradient/TopGradient'
 
@@ -28,6 +28,7 @@ const MyLikesScreen = ({ navigation }) => {
     if (width <= 360) {
       setNumColumns(3)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [width])
 
   return (

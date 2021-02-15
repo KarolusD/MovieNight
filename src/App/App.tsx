@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import {
   Montserrat_400Regular,
   Montserrat_600SemiBold,
@@ -12,7 +13,7 @@ import { ThemeProvider } from 'styled-components'
 import BottomNavigation from '_navigation/BottomNavigation/BottomNavigation'
 import { lightTheme, darkTheme } from '_themes'
 
-const App = () => {
+const App: React.FC = () => {
   // TODO: Create custom hook (useTheme) with useContext, useState, useEffect
   const [isDark, setIsDark] = useState(true)
 

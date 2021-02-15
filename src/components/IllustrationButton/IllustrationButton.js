@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Image from '_components/Image/Image'
+import { Image as ImageNative } from 'react-native'
 import { ButtonText } from '_components/Typography'
 import PropTypes from 'prop-types'
 
@@ -74,7 +75,7 @@ IllustrationButton.propTypes = {
   illustrationWidth: PropTypes.number,
   illustrationHeight: PropTypes.number,
   onPress: PropTypes.func.isRequired,
-  source: PropTypes.element.isRequired,
+  source: ImageNative.propTypes.source.isRequired,
   title: PropTypes.string.isRequired,
   variant: PropTypes.string.isRequired,
 }

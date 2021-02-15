@@ -1,11 +1,10 @@
-import PropTypes from 'prop-types'
 import React, { useContext, useEffect, useState, useRef } from 'react'
 import styled, { ThemeContext } from 'styled-components'
 import { RECOMMENDED } from '_api/constants'
 import FilmCard from '_components/FilmCard/FilmCard'
 import Tabs from '_components/Tabs/Tabs'
 import TopGradient from '_components/TopGradient/TopGradient'
-import ScreenTemplate from '_templates/ScreenTemplate/ScreenTemplate'
+import ScreenTemplate from '_templates/ScreenTemplate'
 
 const RecommendedList = styled.FlatList`
   flex: 1;
@@ -30,11 +29,17 @@ const RecommendedScreen = ({ navigation }) => {
   const [recommended, setRecommended] = useState([])
   const [tabs, setTabs] = useState([])
 
+  const contentContainerStyle = {
+    marginTop: 240,
+    height: recommended.length > 5 ? '110%' : '100%',
+  }
+
   useEffect(() => {
     setTabs(RECOMMENDED)
     setRecommended(
       RECOMMENDED.filter(({ title }) => title === activeTab)[0].recommended
     )
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {
@@ -52,10 +57,7 @@ const RecommendedScreen = ({ navigation }) => {
         />
       </TabsWrapper>
       <RecommendedList
-        contentContainerStyle={{
-          marginTop: 240,
-          height: recommended.length > 5 ? '110%' : '100%',
-        }}
+        contentContainerStyle={contentContainerStyle}
         data={recommended}
         keyExtractor={(item) => item.title}
         ref={recommendedListRef}

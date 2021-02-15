@@ -1,9 +1,8 @@
-import PropTypes from 'prop-types'
 import React, { useContext, useEffect, useState } from 'react'
 import styled, { ThemeContext } from 'styled-components'
-import { RECOMMENDED, TRENDING } from '_api/constants.js'
-import { anyRoomImage_Dark, forMeImage_Dark } from '_assets/images/darkTheme'
-import { anyRoomImage_Light, forMeImage_Light } from '_assets/images/lightTheme'
+import { RECOMMENDED, TRENDING } from '_api/constants'
+import { anyRoomImageDark, forMeImageDark } from '_assets/images/darkTheme'
+import { anyRoomImageLight, forMeImageLight } from '_assets/images/lightTheme'
 import { InfoIcon } from '_assets/svgs/icons'
 import Button from '_components/Button/Button'
 import IllustrationButton from '_components/IllustrationButton/IllustrationButton'
@@ -22,7 +21,7 @@ const FlexWrapper = styled.View`
   justify-content: space-between;
 `
 
-const HomeScreen = ({ navigation, route }) => {
+const HomeScreen = ({ navigation }) => {
   const theme = useContext(ThemeContext)
 
   const { toggle, isVisible, title } = useModal(false)
@@ -103,7 +102,7 @@ const HomeScreen = ({ navigation, route }) => {
             borderColor={theme.colors.brand}
             illustrationHeight={80}
             illustrationWight={80}
-            source={theme.mode === 'light' ? forMeImage_Light : forMeImage_Dark}
+            source={theme.mode === 'light' ? forMeImageLight : forMeImageDark}
             title="Choose only for me"
             variant="left"
           />
@@ -112,7 +111,7 @@ const HomeScreen = ({ navigation, route }) => {
             illustrationHeight={80}
             illustrationWight={90}
             source={
-              theme.mode === 'light' ? anyRoomImage_Light : anyRoomImage_Dark
+              theme.mode === 'light' ? anyRoomImageLight : anyRoomImageDark
             }
             title="Choose for any room"
             variant="right"
@@ -124,10 +123,6 @@ const HomeScreen = ({ navigation, route }) => {
       </Modal>
     </ScreenTemplate>
   )
-}
-
-HomeScreen.propTypes = {
-  route: PropTypes.object,
 }
 
 export default HomeScreen

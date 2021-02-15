@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
 import { TwoUsers } from '_assets/svgs/icons'
-import ScreenTemplate from '_templates/ScreenTemplate/ScreenTemplate'
+import ScreenTemplate from '_templates/ScreenTemplate'
 
 const Heading = styled.Text`
   font-family: ${({ theme }) => theme.fonts.prompt.semibold};
