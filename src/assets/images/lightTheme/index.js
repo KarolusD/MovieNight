@@ -1,4 +1,4 @@
-import anyRoomImage_Light from './any_room--light.png'
-import forMeImage_Light from './for_me--light.png'
+import anyRoomImageLight from './any_room--light.png'
+import forMeImageLight from './for_me--light.png'
 
-export { anyRoomImage_Light, forMeImage_Light }
+export { anyRoomImageLight, forMeImageLight }

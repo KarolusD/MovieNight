@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
-import { TwoUsers } from '_assets/svgs/icons'
+import { PlayIcon } from '_assets/svgs/icons'
 import ScreenTemplate from '_templates/ScreenTemplate/ScreenTemplate'
 
 const Heading = styled.Text`
@@ -9,17 +9,13 @@ const Heading = styled.Text`
   font-size: ${({ theme }) => theme.fonts.sizes.h1};
 `
 
-const ConnectScreen = ({ route }) => {
+const FilmDetailsScreen = () => {
   return (
-    <ScreenTemplate>
-      <TwoUsers color="blue" filled />
-      <Heading>Connect Screen</Heading>
+    <ScreenTemplate container="scroll">
+      <PlayIcon color="blue" filled />
+      <Heading>Film details Screen</Heading>
     </ScreenTemplate>
   )
 }
 
-ConnectScreen.propTypes = {
-  route: PropTypes.object,
-}
-
-export default ConnectScreen
+export default FilmDetailsScreen

@@ -1,4 +1,4 @@
-import anyRoomImage_Dark from './any_room--dark.png'
-import forMeImage_Dark from './for_me--dark.png'
+import anyRoomImageDark from './any_room--dark.png'
+import forMeImageDark from './for_me--dark.png'
 
-export { anyRoomImage_Dark, forMeImage_Dark }
+export { anyRoomImageDark, forMeImageDark }

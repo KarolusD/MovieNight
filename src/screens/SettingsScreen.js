@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import ScreenTemplate from '_templates/ScreenTemplate/ScreenTemplate'
+import ScreenTemplate from '_templates/ScreenTemplate'
 import { SettingsIcon } from '_assets/svgs/icons'
 import PropTypes from 'prop-types'
 

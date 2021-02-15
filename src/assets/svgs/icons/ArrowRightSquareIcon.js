@@ -1,8 +1,10 @@
 import * as React from 'react'
 import Svg, { Path } from 'react-native-svg'
 
-function ArrowRightSquare(props) {
-  if (props.filled) {
+function ArrowRightSquareIcon(props) {
+  const { color, filled } = props
+
+  if (filled) {
     return (
       <Svg
         width={24}
@@ -15,11 +17,11 @@ function ArrowRightSquare(props) {
         <Path
           opacity={0.4}
           d="M7.916 22h8.168C19.623 22 22 19.724 22 16.335v-8.67C22 4.276 19.623 2 16.084 2H7.916C4.378 2 2 4.277 2 7.666v8.67C2 19.723 4.378 22 7.916 22"
-          fill={props.color}
+          fill={color}
         />
         <Path
           d="M12.855 16.28l3.765-3.749a.773.773 0 000-1.064L12.855 7.72a.75.75 0 00-1.059 1.064l2.478 2.467H7.918a.75.75 0 100 1.5h6.356l-2.477 2.466a.749.749 0 00-.003 1.061.751.751 0 001.061.002"
-          fill={props.color}
+          fill={color}
         />
       </Svg>
     )
@@ -48,4 +50,4 @@ function ArrowRightSquare(props) {
   )
 }
 
-export default ArrowRightSquare
+export default ArrowRightSquareIcon

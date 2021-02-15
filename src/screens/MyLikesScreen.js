@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import styled, { ThemeContext } from 'styled-components'
 import { MY_LIKES } from '_api/constants'
 import Poster from '_components/Poster/Poster'
-import ScreenTemplate from '_templates/ScreenTemplate/ScreenTemplate'
+import ScreenTemplate from '_templates/ScreenTemplate'
 import { Dimensions } from 'react-native'
 import TopGradient from '_components/TopGradient/TopGradient'
 
@@ -19,7 +19,7 @@ const PostersGrid = styled.FlatList`
 
 const PosterButton = styled.TouchableOpacity``
 
-const MyLikesScreen = () => {
+const MyLikesScreen = ({ navigation }) => {
   const theme = useContext(ThemeContext)
 
   const [numColumns, setNumColumns] = useState(4)
@@ -28,6 +28,7 @@ const MyLikesScreen = () => {
     if (width <= 360) {
       setNumColumns(3)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [width])
 
   return (
@@ -39,7 +40,11 @@ const MyLikesScreen = () => {
         keyExtractor={(item) => item}
         showsVerticalScrollIndicator={false}
         renderItem={({ item }) => (
-          <PosterButton>
+          <PosterButton
+            onPress={() =>
+              navigation.navigate('Film details', { title: 'My likes' })
+            }
+          >
             <Poster
               style={{
                 marginBottom: 16,
