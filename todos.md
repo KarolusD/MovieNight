@@ -12,7 +12,7 @@
 - [x] PostersSlider component (take array of posters)
 - [x] Poster component (small/medium/big)
 - [x] Use posters slider to re-create trending now component
-- [ ] Prepare Favourites screen
-- [ ] Make 2-tab component
-- [ ] Add Icons to HeaderBar
-- [ ] 
+- [x] Prepare Favourites screen
+- [x] Make 2-tab component
+- [x] Add Icons to HeaderBar
+- [] Migrate to typescript

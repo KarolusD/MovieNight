@@ -1,20 +1,30 @@
 {
   "compilerOptions": {
-    "moduleResolution": "node",
+    "target": "esnext",
     "baseUrl": ".",
+    "esModuleInterop": true,
+    "noImplicitAny": false,
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react-native",
+    "lib": ["dom", "esnext"],
+    "moduleResolution": "node",
+    "noEmit": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "strict": true,
     /* Base directory to resolve non-absolute module names. */
     "paths": {
-      "_App": ["./App"],
-      "_assets": ["./assets"],
-      "_api": ["./api"],
-      "_components": ["./components"],
-      "_navigation": ["./navigation"],
-      "_hooks": ["./hooks"],
-      "_screens": ["./screens"],
-      "_stores": ["./stores"],
-      "_templates": ["./templates"],
-      "_utils": ["./utils"]
+      "_App/*": ["./src/App/*"],
+      "_assets/*": ["./src/assets/*"],
+      "_api/*": ["./src/api/*"],
+      "_components/*": ["./src/components/*"],
+      "_navigation/*": ["./src/navigation/*"],
+      "_hooks/*": ["./src/hooks/*"],
+      "_screens/*": ["./src/screens/*"],
+      "_templates/*": ["./src/templates/*"],
+      "_themes/*": ["./src/themes/*"],
+      "_utils/*": ["./src/utils/*"]
     }
   },
-  "include": ["src/**/*"]
+  "include": ["./**/*", "./babel.config.js"]
 }
