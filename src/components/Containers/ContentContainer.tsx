@@ -1,9 +1,9 @@
 import styled from 'styled-components/native'
 
-const ContentContainer = styled.View<{ paddingTop?: number }>`
+const ContentContainer = styled.View<{ top?: number }>`
   flex: 1;
   height: 100%;
-  padding-top: ${({ paddingTop }) => (paddingTop ? `${paddingTop}px` : 0)};
+  top: ${({ top }) => (top ? `${top}px` : 0)};
   width: 100%;
 `
 

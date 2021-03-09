@@ -15,7 +15,7 @@ import { darkTheme, lightTheme } from '_themes/themes'
 
 const App: React.FC = () => {
   // TODO: Create custom hook (useTheme) with useContext, useState, useEffect
-  const [isDark, setIsDark] = useState<boolean>(true)
+  const [isDark, setIsDark] = useState(true)
 
   const [fontsLoaded] = useFonts({
     Prompt_600SemiBold,

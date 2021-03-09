@@ -9,10 +9,10 @@ import IllustrationButton from '_components/IllustrationButton/IllustrationButto
 import PostersCarousel from '_components/PostersCarousel/PostersCarousel'
 import Section from '_components/Section/Section'
 import Tabs from '_components/Tabs/Tabs'
-import useModal from '_hooks/useModal'
-import { MainNavigationProps } from '_navigation/MainNavigation/types'
+import { BottomNavigationProps } from '_navigation/BottomNavigation/types'
 import ScreenTemplate from '_templates/ScreenTemplate'
-import { RecommendedT, ActiveRecommendedT, TrendingT } from '_api/types'
+import { IRecommended, IActiveRecommended, ITrending } from '_api/types'
+import { useHeaderHeight } from '@react-navigation/stack'
 
 const FlexWrapper = styled.View`
   flex-direction: row;
@@ -21,18 +21,19 @@ const FlexWrapper = styled.View`
   padding: 0px 16px;
 `
 
-const HomeScreen: React.FC<MainNavigationProps<'Home'>> = ({ navigation }) => {
+const HomeScreen: React.FC<BottomNavigationProps<'Home'>> = ({
+  navigation,
+}) => {
   const theme = useContext(ThemeContext)
-
-  const { toggle, isVisible, title } = useModal(false)
+  const headerHeight = useHeaderHeight()
 
   // TODO: Create custom hook (useRecommendedFilms) with api call, useState and useEffect
-  const [tabs, setTabs] = useState<RecommendedT[]>([])
+  const [tabs, setTabs] = useState<IRecommended[]>([])
   const [activeTab, setActiveTab] = useState('For you')
-  const [recommended, setRecommended] = useState<ActiveRecommendedT[]>([])
+  const [recommended, setRecommended] = useState<IActiveRecommended[]>([])
 
   // TODO: Create custom hook (useTrendingFilms) with api call, useState and useEffect
-  const [trending, setTrending] = useState<TrendingT[]>([])
+  const [trending, setTrending] = useState<ITrending[]>([])
 
   useEffect(() => {
     setTabs(RECOMMENDED)
@@ -44,7 +45,7 @@ const HomeScreen: React.FC<MainNavigationProps<'Home'>> = ({ navigation }) => {
   }, [activeTab])
 
   return (
-    <ScreenTemplate container="static" paddingTop={80}>
+    <ScreenTemplate container="scroll" top={headerHeight + 24}>
       <Section
         title="Recommended"
         displayButton={() => (
@@ -55,6 +56,7 @@ const HomeScreen: React.FC<MainNavigationProps<'Home'>> = ({ navigation }) => {
                 screen: 'TopTabs',
                 params: {
                   screen: 'Recommended',
+                  cipa: 'kupa',
                 },
               })
             }

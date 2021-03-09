@@ -1,7 +1,7 @@
 import styled from 'styled-components/native'
-import { TextT } from './types'
+import { IText } from './types'
 
-const CaptionText = styled.Text<TextT>`
+const CaptionText = styled.Text<IText>`
   color: ${({ color, theme }) => color || theme.colors.text};
   font-family: ${({
     theme: {
@@ -19,6 +19,7 @@ const CaptionText = styled.Text<TextT>`
     },
     primary,
   }) => (primary ? c1 : c2)};
+  text-align: ${({ textAlign }) => textAlign || 'left'};
 `
 
 export default CaptionText

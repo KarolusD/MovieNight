@@ -1,30 +1,47 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { createStackNavigator } from '@react-navigation/stack'
 import React from 'react'
-import BottomMenu from '_components/BottomMenu/BottomMenu'
+import BackButton from '_components/BackButton/BackButton'
 import { headerOptions } from '_components/Header'
-import {
-  ConnectStack,
-  FavouritesStack,
-  HomeStack,
-  MoviesStack,
-  SettingsStack,
-} from '../stacks'
-import { MainNavigationParams } from './types'
+import BottomNavigation from '_navigation/BottomNavigation/BottomNavigation'
+import FilmDetailsScreen from '_screens/FilmDetailsScreen'
 
-const BottomTab = createBottomTabNavigator<MainNavigationParams>()
+type MainNavigationParams = {
+  BottomNavigation: undefined
+  FilmDetails: {
+    title?: string
+    item: any
+  }
+}
+
+const Stack = createStackNavigator<MainNavigationParams>()
 
 const MainNavigation: React.FC = () => {
   return (
-    <BottomTab.Navigator
-      initialRouteName="Home"
-      tabBar={(props) => <BottomMenu {...props} />}
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+        headerTitleAlign: 'center',
+      }}
     >
-      <BottomTab.Screen name="Home" component={HomeStack} />
-      <BottomTab.Screen name="Favourites" component={FavouritesStack} />
-      <BottomTab.Screen name="Movies" component={MoviesStack} />
-      <BottomTab.Screen name="Connect" component={ConnectStack} />
-      <BottomTab.Screen name="Settings" component={SettingsStack} />
-    </BottomTab.Navigator>
+      <Stack.Screen name="BottomNavigation" component={BottomNavigation} />
+      <Stack.Screen
+        component={FilmDetailsScreen}
+        name="FilmDetails"
+        options={({ navigation, route }) =>
+          headerOptions({
+            headerShown: true,
+            headerBackground: null,
+            title: route?.params?.title,
+            headerLeft: () => (
+              <BackButton
+                type="background"
+                goBack={() => navigation.goBack()}
+              />
+            ),
+          })
+        }
+      />
+    </Stack.Navigator>
   )
 }
 

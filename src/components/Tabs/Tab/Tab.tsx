@@ -14,17 +14,13 @@ const TabContainer = styled.TouchableOpacity<{ isActive: boolean }>`
   align-items: center;
   background-color: ${({ isActive, theme }) =>
     isActive ? theme.colors.transparentInfo : theme.colors.pureBg};
-  border-radius: 18px;
+  border-radius: 22px;
   display: flex;
-  height: 36px;
+  height: 44px;
   justify-content: center;
   margin-right: ${({ theme }) => theme.spacing.xs};
   overflow: hidden;
-  padding: ${({
-    theme: {
-      spacing: { s },
-    },
-  }) => `0 ${s}`};
+  padding: ${({ theme }) => `0 ${theme.spacing.m}`};
 `
 
 type Props = {

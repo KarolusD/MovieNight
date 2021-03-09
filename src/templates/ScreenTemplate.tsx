@@ -6,41 +6,49 @@ import {
   ScrollContainer,
   ViewContainer,
 } from '_components/Containers'
+import { Platform } from 'react-native'
 
 interface Props {
+  background?: string
   children: React.ReactNode
-  paddingTop?: number
+  top?: number
   container?: string
 }
 
 const ScreenTemplate: React.FC<Props> = ({
+  background,
   children,
-  paddingTop,
   container,
+  top,
 }) => {
   const theme = useContext(ThemeContext)
+
+  const contentContainerStyle = {
+    top: top ?? (Platform.OS === 'ios' ? 116 : 100),
+    paddingBottom: 120,
+  }
 
   const renderContainer = () => {
     if (container === 'scroll') {
       return (
-        <ScrollContainer paddingTop={paddingTop}>{children}</ScrollContainer>
+        <ScrollContainer contentContainerStyle={contentContainerStyle}>
+          {children}
+        </ScrollContainer>
       )
     }
     if (container === 'static') {
-      return (
-        <ContentContainer paddingTop={paddingTop}>{children}</ContentContainer>
-      )
+      return <ContentContainer top={top}>{children}</ContentContainer>
     }
     return children
   }
 
   return (
-    <ViewContainer>
+    <ViewContainer background={background} edges={['right', 'bottom', 'left']}>
+      {renderContainer()}
       <StatusBar
         style={theme.mode === 'light' ? 'dark' : 'light'}
         translucent
       />
-      {renderContainer()}
     </ViewContainer>
   )
 }

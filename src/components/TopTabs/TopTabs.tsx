@@ -1,6 +1,6 @@
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs'
 import React, { useContext } from 'react'
-import { Dimensions } from 'react-native'
+import { Dimensions, Platform } from 'react-native'
 import Animated from 'react-native-reanimated'
 import styled, { ThemeContext } from 'styled-components/native'
 import { ButtonText } from '_components/Typography'
@@ -9,7 +9,7 @@ const AnimatedButtonText = Animated.createAnimatedComponent(ButtonText)
 
 const { width } = Dimensions.get('window')
 
-const DoubleTab = styled.View<{ width: number }>`
+const DoubleTab = styled.View<{ width: number; top: number }>`
   align-items: center;
   background-color: ${({ theme }) => theme.colors.pureBg};
   border-radius: 26px;
@@ -19,7 +19,7 @@ const DoubleTab = styled.View<{ width: number }>`
   left: ${({ width }) => `${width / 2 - 135}px`};
   padding: 4px;
   position: absolute;
-  top: 112px;
+  top: ${({ top }) => `${top}px`};
   width: 270px;
   z-index: 100;
   overflow: hidden;
@@ -58,6 +58,7 @@ const TopTabs: React.FC<Props> = ({
 }) => {
   const theme = useContext(ThemeContext)
   const inputRange = state.routes.map((_, i) => i)
+  const top = Platform.OS === 'ios' ? 112 : 96
 
   const translateX = Animated.interpolate(position, {
     inputRange,
@@ -65,7 +66,7 @@ const TopTabs: React.FC<Props> = ({
   })
 
   return (
-    <DoubleTab width={width}>
+    <DoubleTab top={top} width={width}>
       <Indicator as={Animated.View} style={{ transform: [{ translateX }] }} />
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key]

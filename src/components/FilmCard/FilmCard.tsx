@@ -3,9 +3,8 @@ import styled, { ThemeContext } from 'styled-components/native'
 import { ArrowRightSquareIcon } from '_assets/icons'
 import Poster from '_components/Poster/Poster'
 import { ButtonText, CaptionText } from '_components/Typography'
-import { useNavigation } from '@react-navigation/native'
 
-const Card = styled.TouchableOpacity`
+const Card = styled.View`
   background: ${({ theme }) => theme.colors.pureBg};
   border-radius: 16px;
   display: flex;
@@ -34,26 +33,21 @@ const FilmInfo = styled.View`
 const Arrow = styled.View`
   align-items: center;
   background-color: ${({ theme }) => theme.colors.brand};
-  border-radius: 8px;
+  border-radius: 12px;
   display: flex;
   height: 100%;
   justify-content: center;
   width: 34px;
 `
 
-type Props = {
+interface Props {
   uri: string
 }
 
 const FilmCard: React.FC<Props> = ({ uri }) => {
-  const navigation = useNavigation()
   const theme = useContext(ThemeContext)
   return (
-    <Card
-      onPress={() =>
-        navigation.navigate('FilmDetails', { title: 'Recommended' })
-      }
-    >
+    <Card>
       <FilmMedia>
         <Poster size="small" uri={uri} />
         <FilmInfo>

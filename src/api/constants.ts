@@ -189,9 +189,100 @@ export const TRENDING = [
 ]
 
 export const MY_LIKES = [
-  'https://cdn.shopify.com/s/files/1/0969/9128/products/Joker_-_Joaquin_Phoenix_-_Hollywood_Action_Movie_Poster_08339151-d79a-4b7b-8bc7-dcad04881c2c.jpg?v=1573629460',
-  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR10aIjTtXPtR0Ge7oooHz3zfgny2kc3BwAnw&usqp=CAU',
-  'https://assets.puzzlefactory.pl/puzzle/231/006/original.jpg',
-  'https://cdn.shopify.com/s/files/1/0057/3728/3618/products/4c177c2b7f7bb9a679f089bcb50f844e_3e89eb5d-ffbd-4033-a00f-e595a3ef2e2a_240x360_crop_center.progressive.jpg?v=1573587540',
-  'https://images-na.ssl-images-amazon.com/images/I/41Vxs2tSNHL._AC_.jpg',
+  {
+    _id: '1',
+    poster:
+      'https://cdn.shopify.com/s/files/1/0969/9128/products/Joker_-_Joaquin_Phoenix_-_Hollywood_Action_Movie_Poster_08339151-d79a-4b7b-8bc7-dcad04881c2c.jpg?v=1573629460',
+  },
+  {
+    _id: '2',
+    poster:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR10aIjTtXPtR0Ge7oooHz3zfgny2kc3BwAnw&usqp=CAU',
+  },
+  {
+    _id: '3',
+    poster: 'https://assets.puzzlefactory.pl/puzzle/231/006/original.jpg',
+  },
+  {
+    _id: '4',
+    poster:
+      'https://cdn.shopify.com/s/files/1/0057/3728/3618/products/4c177c2b7f7bb9a679f089bcb50f844e_3e89eb5d-ffbd-4033-a00f-e595a3ef2e2a_240x360_crop_center.progressive.jpg?v=1573587540',
+  },
+  {
+    _id: '5',
+    poster:
+      'https://images-na.ssl-images-amazon.com/images/I/41Vxs2tSNHL._AC_.jpg',
+  },
+  {
+    _id: '6',
+    poster:
+      'https://cdn.shopify.com/s/files/1/0969/9128/products/Joker_-_Joaquin_Phoenix_-_Hollywood_Action_Movie_Poster_08339151-d79a-4b7b-8bc7-dcad04881c2c.jpg?v=1573629460',
+  },
+  {
+    _id: '7',
+    poster:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR10aIjTtXPtR0Ge7oooHz3zfgny2kc3BwAnw&usqp=CAU',
+  },
+  {
+    _id: '8',
+    poster: 'https://assets.puzzlefactory.pl/puzzle/231/006/original.jpg',
+  },
+  {
+    _id: '9',
+    poster:
+      'https://cdn.shopify.com/s/files/1/0057/3728/3618/products/4c177c2b7f7bb9a679f089bcb50f844e_3e89eb5d-ffbd-4033-a00f-e595a3ef2e2a_240x360_crop_center.progressive.jpg?v=1573587540',
+  },
+  {
+    _id: '10',
+    poster:
+      'https://images-na.ssl-images-amazon.com/images/I/41Vxs2tSNHL._AC_.jpg',
+  },
+  {
+    _id: '11',
+    poster:
+      'https://cdn.shopify.com/s/files/1/0969/9128/products/Joker_-_Joaquin_Phoenix_-_Hollywood_Action_Movie_Poster_08339151-d79a-4b7b-8bc7-dcad04881c2c.jpg?v=1573629460',
+  },
+  {
+    _id: '12',
+    poster:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR10aIjTtXPtR0Ge7oooHz3zfgny2kc3BwAnw&usqp=CAU',
+  },
+  {
+    _id: '13',
+    poster: 'https://assets.puzzlefactory.pl/puzzle/231/006/original.jpg',
+  },
+  {
+    _id: '14',
+    poster:
+      'https://cdn.shopify.com/s/files/1/0057/3728/3618/products/4c177c2b7f7bb9a679f089bcb50f844e_3e89eb5d-ffbd-4033-a00f-e595a3ef2e2a_240x360_crop_center.progressive.jpg?v=1573587540',
+  },
+  {
+    _id: '15',
+    poster:
+      'https://images-na.ssl-images-amazon.com/images/I/41Vxs2tSNHL._AC_.jpg',
+  },
+  {
+    _id: '16',
+    poster:
+      'https://cdn.shopify.com/s/files/1/0969/9128/products/Joker_-_Joaquin_Phoenix_-_Hollywood_Action_Movie_Poster_08339151-d79a-4b7b-8bc7-dcad04881c2c.jpg?v=1573629460',
+  },
+  {
+    _id: '17',
+    poster:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR10aIjTtXPtR0Ge7oooHz3zfgny2kc3BwAnw&usqp=CAU',
+  },
+  {
+    _id: '18',
+    poster: 'https://assets.puzzlefactory.pl/puzzle/231/006/original.jpg',
+  },
+  {
+    _id: '19',
+    poster:
+      'https://cdn.shopify.com/s/files/1/0057/3728/3618/products/4c177c2b7f7bb9a679f089bcb50f844e_3e89eb5d-ffbd-4033-a00f-e595a3ef2e2a_240x360_crop_center.progressive.jpg?v=1573587540',
+  },
+  {
+    _id: '20',
+    poster:
+      'https://images-na.ssl-images-amazon.com/images/I/41Vxs2tSNHL._AC_.jpg',
+  },
 ]

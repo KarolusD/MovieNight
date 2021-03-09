@@ -1,26 +1,28 @@
+import { useNavigation } from '@react-navigation/native'
 import React, { useContext, useEffect, useState } from 'react'
-import { Dimensions, FlatList } from 'react-native'
+import { Dimensions, FlatList, Platform } from 'react-native'
 import styled, { ThemeContext } from 'styled-components/native'
 import { MY_LIKES } from '_api/constants'
+import Gradient from '_components/Gradient/Gradient'
 import Poster from '_components/Poster/Poster'
-import TopGradient from '_components/TopGradient/TopGradient'
-import { MainNavigationProps } from '_navigation/MainNavigation/types'
+import { BottomNavigationProps } from '_navigation/BottomNavigation/types'
 import ScreenTemplate from '_templates/ScreenTemplate'
-import { useNavigation } from '@react-navigation/native'
 
 const { width } = Dimensions.get('window')
 const POSTER_WIDTH = 74
 
-type ItemT = string
+interface IItem {
+  _id: string
+  poster: string
+}
 
-type PosterGridT = {
+interface IPosterGrid {
   numColumns: number
 }
 
-const PostersGrid = styled(FlatList as new () => FlatList<ItemT>)<PosterGridT>`
+const PostersGrid = styled(FlatList as new () => FlatList<IItem>)<IPosterGrid>`
   left: ${({ numColumns }) =>
     `${width / 2 - (numColumns * (POSTER_WIDTH + 16) - 16) / 2}px`};
-  padding-top: 140px;
   width: 100%;
 `
 
@@ -31,7 +33,7 @@ const PosterStyle = {
   marginRight: 16,
 }
 
-const MyLikesScreen: React.FC<MainNavigationProps<'Favourites'>> = () => {
+const MyLikesScreen: React.FC<BottomNavigationProps<'Favourites'>> = () => {
   const navigation = useNavigation()
   const theme = useContext(ThemeContext)
   const [numColumns, setNumColumns] = useState(4)
@@ -43,25 +45,33 @@ const MyLikesScreen: React.FC<MainNavigationProps<'Favourites'>> = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [width])
 
+  const contentContainerStyle = {
+    paddingTop: Platform.OS === 'ios' ? 180 : 164,
+    paddingBottom: MY_LIKES.length > 15 ? 300 : 0,
+  }
+
   return (
     <ScreenTemplate>
       <PostersGrid
-        contentInset={{ bottom: 240 }}
+        contentContainerStyle={contentContainerStyle}
         data={MY_LIKES}
         numColumns={numColumns}
-        keyExtractor={(item) => item}
+        keyExtractor={(item) => item._id}
         showsVerticalScrollIndicator={false}
         renderItem={({ item }) => (
           <PosterButton
-            onPress={() =>
-              navigation.navigate('FilmDetails', { title: 'My likes' })
-            }
+            onPress={() => navigation.navigate('FilmDetails', { item })}
           >
-            <Poster style={PosterStyle} size="medium" uri={item} />
+            <Poster style={PosterStyle} size="medium" uri={item.poster} />
           </PosterButton>
         )}
       />
-      <TopGradient color={theme.colors.background} height={188} />
+      <Gradient
+        colors={[theme.colors.background, theme.colors.background]}
+        locations={[0.85, 1]}
+        opacity={[1, 0]}
+        height={Platform.OS === 'ios' ? 188 : 172}
+      />
     </ScreenTemplate>
   )
 }

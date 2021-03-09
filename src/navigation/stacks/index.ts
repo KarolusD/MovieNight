@@ -1,7 +1,5 @@
-import ConnectStack from './ConnectStack'
-import FavouritesStack from './FavouritesStack'
-import HomeStack from './HomeStack'
-import MoviesStack from './MoviesStack'
-import SettingsStack from './SettingsStack'
-
-export { ConnectStack, FavouritesStack, HomeStack, MoviesStack, SettingsStack }
+export { default as ConnectStack } from './ConnectStack'
+export { default as FavouritesStack } from './FavouritesStack'
+export { default as HomeStack } from './HomeStack'
+export { default as MoviesStack } from './MoviesStack'
+export { default as SettingsStack } from './SettingsStack'

@@ -68,12 +68,7 @@
     "no-shadow": "off",
     "@typescript-eslint/no-shadow": "off",
     "camelcase": ["error", { "ignoreImports": true }],
-    "react-native/no-raw-text": [
-      2,
-      {
-        "skip": ["ButtonText", "CaptionText", "HeaderText", "ParagraphText"]
-      }
-    ],
+    "react-native/no-raw-text": "off",
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": ["error"],
     "no-underscore-dangle": 0

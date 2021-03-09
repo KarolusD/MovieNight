@@ -12,8 +12,9 @@ const StyledImageView = styled.View`
 `
 
 const StyledTextView = styled.View`
-  height: 40px;
-  width: 100px;
+  height: 120%;
+  width: 102px;
+  justify-content: center;
 `
 
 const IllustrationButtonContainer = styled.TouchableOpacity<ContainerProps>`
@@ -37,12 +38,12 @@ const IllustrationButtonContainer = styled.TouchableOpacity<ContainerProps>`
   width: 48%;
 `
 
-type ContainerProps = {
+interface ContainerProps {
   borderColor: string
   variant: 'left' | 'right'
 }
 
-type OtherProps = {
+interface OtherProps extends ContainerProps {
   illustrationWidth: number
   illustrationHeight: number
   onPress: () => void
@@ -75,7 +76,10 @@ const IllustrationButton: React.FC<Props> = ({
         />
       </StyledImageView>
       <StyledTextView>
-        <ButtonText textAlign={variant === 'left' ? 'right' : 'left'}>
+        <ButtonText
+          numberOfLines={2}
+          textAlign={variant === 'left' ? 'right' : 'left'}
+        >
           {title}
         </ButtonText>
       </StyledTextView>

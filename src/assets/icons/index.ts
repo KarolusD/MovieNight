@@ -1,21 +1,11 @@
-import ArrowLeftIcon from './ArrowLeftIcon'
-import ArrowRightSquareIcon from './ArrowRightSquareIcon'
-import CategoryIcon from './CategoryIcon'
-import CloseIcon from './CloseIcon'
-import HeartIcon from './HeartIcon'
-import InfoIcon from './InfoIcon'
-import PlayIcon from './PlayIcon'
-import SettingsIcon from './SettingsIcon'
-import TwoUsers from './TwoUsers'
-
-export {
-  ArrowLeftIcon,
-  ArrowRightSquareIcon,
-  CategoryIcon,
-  CloseIcon,
-  HeartIcon,
-  InfoIcon,
-  PlayIcon,
-  SettingsIcon,
-  TwoUsers,
-}
+export { default as ArrowLeftIcon } from './ArrowLeftIcon'
+export { default as ArrowRightSquareIcon } from './ArrowRightSquareIcon'
+export { default as CategoryIcon } from './CategoryIcon'
+export { default as CloseIcon } from './CloseIcon'
+export { default as HeartIcon } from './HeartIcon'
+export { default as InfoIcon } from './InfoIcon'
+export { default as PlayIcon } from './PlayIcon'
+export { default as SettingsIcon } from './SettingsIcon'
+export { default as TicketStarIcon } from './TicketStarIcon'
+export { default as TimeCircleIcon } from './TimeCircleIcon'
+export { default as TwoUsers } from './TwoUsers'

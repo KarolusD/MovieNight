@@ -4,18 +4,18 @@ import styled from 'styled-components/native'
 
 const Image = styled.Image<Props>`
   border-radius: ${({ size }) => {
-    if (size === 'large') return '12px'
-    if (size === 'medium') return '12px'
-    if (size === 'small') return '8px'
-    return null
+    if (size === 'container') return 0
+    return '12px'
   }};
   height: ${({ size }) => {
+    if (size === 'container') return '100%'
     if (size === 'large') return '200px'
     if (size === 'medium') return '108px'
     if (size === 'small') return '60px'
     return null
   }};
   width: ${({ size }) => {
+    if (size === 'container') return '100%'
     if (size === 'large') return '132px'
     if (size === 'medium') return '74px'
     if (size === 'small') return '40px'
@@ -23,12 +23,12 @@ const Image = styled.Image<Props>`
   }};
 `
 interface Props {
-  size: 'large' | 'medium' | 'small'
+  size: 'huge' | 'large' | 'medium' | 'small' | 'container'
   style?: StyleProp<ImageStyle>
 }
 
 const Poster: React.FC<Props & { uri: string }> = ({ size, style, uri }) => {
-  return <Image size={size} source={{ uri }} style={style} />
+  return <Image size={size} source={{ uri }} style={style} resizeMode="cover" />
 }
 
 export default Poster

@@ -5,7 +5,7 @@ import { CloseIcon } from '_assets/icons'
 import { HeaderTitle } from '_components/Header'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const StyledModal = styled(NativeModal as any)<ModalT>`
+const StyledModal = styled(NativeModal as any)<IModal>`
   border-top-left-radius: 24px;
   border-top-right-radius: 24px;
   margin: ${({ margin }) =>
@@ -35,7 +35,7 @@ const CloseButton = styled.TouchableOpacity`
   padding: ${({ theme }) => theme.spacing.xxs};
 `
 
-type ModalT = {
+interface IModal {
   margin: {
     top?: number
     left?: number
@@ -44,7 +44,7 @@ type ModalT = {
   }
 }
 
-type Props = {
+interface Props extends IModal {
   children: React.ReactNode
   isVisible: boolean
   isSwipeable?: boolean
@@ -52,7 +52,7 @@ type Props = {
   toggle: () => void
 }
 
-const Modal: React.FC<Props & ModalT> = ({
+const Modal: React.FC<Props> = ({
   children,
   isVisible,
   isSwipeable,

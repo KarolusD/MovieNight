@@ -1,7 +1,7 @@
 import styled from 'styled-components/native'
-import { TextT } from './types'
+import { IText } from './types'
 
-const ButtonText = styled.Text<TextT>`
+const ButtonText = styled.Text<IText>`
   color: ${({ color, theme }) => color || theme.colors.text};
   font-family: ${({ theme }) => theme.fonts.prompt.semibold};
   font-size: ${({

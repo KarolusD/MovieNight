@@ -20,6 +20,7 @@ const Image: React.FC<Props> = ({ height, width, source }) => {
       width={width}
       source={source}
       resizeMode="cover"
+      resizeMethod="scale"
     />
   )
 }

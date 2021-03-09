@@ -1,9 +1,9 @@
-import React from 'react'
-import styled from 'styled-components/native'
+import React, { useContext } from 'react'
+import styled, { ThemeContext } from 'styled-components/native'
 import { HeaderText } from '_components/Typography'
 
 const SectionContainer = styled.View`
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 `
 const SectionHeader = styled.View`
   align-items: center;
@@ -21,10 +21,11 @@ interface Props {
 }
 
 const Section: React.FC<Props> = ({ children, displayButton, title }) => {
+  const theme = useContext(ThemeContext)
   return (
     <SectionContainer>
       <SectionHeader>
-        <HeaderText primary>{title}</HeaderText>
+        <HeaderText type="h3">{title}</HeaderText>
         {displayButton && displayButton()}
       </SectionHeader>
       {children}

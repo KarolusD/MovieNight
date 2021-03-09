@@ -1,9 +1,9 @@
 import styled from 'styled-components/native'
-import { TextT } from './types'
+import { IText } from './types'
 
-const ParagraphText = styled.Text<TextT>`
+const ParagraphText = styled.Text<IText>`
   color: ${({ color, theme }) => color || theme.colors.text};
-  font-family: ${({ theme }) => theme.fonts.montserrat.semibold};
+  font-family: ${({ theme }) => theme.fonts.montserrat.regular};
   font-size: ${({
     theme: {
       fonts: {
@@ -12,6 +12,7 @@ const ParagraphText = styled.Text<TextT>`
     },
     primary,
   }) => (primary ? p1 : p2)};
+  line-height: ${({ primary }) => (primary ? '28px' : '22px')};
 `
 
 export default ParagraphText

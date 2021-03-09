@@ -3,21 +3,25 @@ import styled, { ThemeContext } from 'styled-components/native'
 
 import { ArrowLeftIcon } from '_assets/icons'
 
-const StyledButton = styled.TouchableOpacity`
-  height: 32px;
+const StyledButton = styled.TouchableOpacity<{ type?: 'background' }>`
+  background: ${({ theme, type }) =>
+    type === 'background' ? theme.colors.transparentPureBg : 'transparent'};
+  border-radius: 22px;
   margin-left: 16px;
-  padding: 4px;
-  width: 32px;
+
+  padding: 10px;
 `
 
-type Props = {
+interface Props {
   goBack: () => void
+  type?: 'background'
 }
 
-const BackButton: React.FC<Props> = ({ goBack }) => {
+const BackButton: React.FC<Props> = ({ goBack, type }) => {
   const theme = useContext(ThemeContext)
+
   return (
-    <StyledButton onPress={goBack}>
+    <StyledButton onPress={goBack} type={type}>
       <ArrowLeftIcon color={theme.colors.text} />
     </StyledButton>
   )

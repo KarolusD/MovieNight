@@ -8,7 +8,7 @@ import {
   TwoUsers,
 } from '_assets/icons'
 
-type Props = {
+interface Props {
   name: string
   isFocused: boolean
 }

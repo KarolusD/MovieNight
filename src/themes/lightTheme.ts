@@ -18,7 +18,7 @@ const lightTheme: DefaultTheme = {
     transparentBrand: 'rgba(255, 215, 72, 0.1)',
     transparentInfo: 'rgba(4, 153, 235, 0.1)',
     transparentBg: 'rgba(240, 240, 240, 0.5)',
-    transparentPureBg: 'rgba(255, 255, 255, 0.6)',
+    transparentPureBg: 'rgba(255, 255, 255, 0.5)',
     transparentSuccess: 'rgba(18, 183, 74, 0.1)',
     transparentWarning: 'rgba(223, 61, 61, 0.1)',
   },

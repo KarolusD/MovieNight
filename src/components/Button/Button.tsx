@@ -17,7 +17,7 @@ type ButtonContainerProps = {
   backgroundColor?: string
   borderColor?: string
   onPress: () => void
-  type: string
+  type: 'primary' | 'link'
 }
 
 type ButtonTextProps = {

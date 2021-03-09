@@ -1,45 +1,48 @@
+import { useNavigation } from '@react-navigation/native'
 import React, { useContext, useEffect, useRef, useState } from 'react'
+import { Platform } from 'react-native'
 import { FlatList } from 'react-native-gesture-handler'
 import styled, { ThemeContext } from 'styled-components/native'
 import { RECOMMENDED } from '_api/constants'
-import { ActiveRecommendedT, RecommendedT } from '_api/types'
+import { IActiveRecommended, IRecommended } from '_api/types'
 import FilmCard from '_components/FilmCard/FilmCard'
+import Gradient from '_components/Gradient/Gradient'
 import Tabs from '_components/Tabs/Tabs'
-import TopGradient from '_components/TopGradient/TopGradient'
-import { MainNavigationProps } from '_navigation/MainNavigation/types'
+import { BottomNavigationProps } from '_navigation/BottomNavigation/types'
 import ScreenTemplate from '_templates/ScreenTemplate'
 
-const RecommendedList = styled(FlatList as new () => FlatList<ItemT>)`
-  flex: 1;
-  height: 100%;
+const RecommendedList = styled(FlatList as new () => FlatList<IItem>)`
   padding: ${({ theme }) => `0 ${theme.spacing.m}`};
-  position: absolute;
   width: 100%;
 `
 
-const TabsWrapper = styled.View`
+const TabsWrapper = styled.View<{ top: number }>`
   position: absolute;
-  top: 140px;
+  top: ${({ top }) => `${top}px`};
   z-index: 999;
 `
 
-type ItemT = {
+const FilmCardButton = styled.TouchableOpacity``
+
+interface IItem {
   title: string
   poster: string
 }
 
-const RecommendedScreen: React.FC<MainNavigationProps<'Favourites'>> = () => {
+const RecommendedScreen: React.FC<BottomNavigationProps<'Favourites'>> = () => {
+  const navigation = useNavigation()
   const theme = useContext(ThemeContext)
+  const top = Platform.OS === 'ios' ? 180 : 164
 
-  const recommendedListRef = useRef<FlatList<ItemT> | null>(null)
+  const recommendedListRef = useRef<FlatList<IItem> | null>(null)
 
   const [activeTab, setActiveTab] = useState('For you')
-  const [recommended, setRecommended] = useState<ActiveRecommendedT[]>([])
-  const [tabs, setTabs] = useState<RecommendedT[]>([])
+  const [recommended, setRecommended] = useState<IActiveRecommended[]>([])
+  const [tabs, setTabs] = useState<IRecommended[]>([])
 
   const contentContainerStyle = {
-    marginTop: 188,
-    height: recommended.length > 5 ? '110%' : '100%',
+    paddingTop: top + 60,
+    paddingBottom: 100,
   }
 
   useEffect(() => {
@@ -56,7 +59,7 @@ const RecommendedScreen: React.FC<MainNavigationProps<'Favourites'>> = () => {
 
   return (
     <ScreenTemplate container="static">
-      <TabsWrapper>
+      <TabsWrapper top={top}>
         <Tabs
           data={tabs}
           activeTab={activeTab}
@@ -69,10 +72,21 @@ const RecommendedScreen: React.FC<MainNavigationProps<'Favourites'>> = () => {
         data={recommended}
         keyExtractor={(item) => item.title}
         ref={recommendedListRef}
-        renderItem={({ item }) => <FilmCard uri={item.poster} />}
+        renderItem={({ item }) => (
+          <FilmCardButton
+            onPress={() => navigation.navigate('FilmDetails', { item })}
+          >
+            <FilmCard uri={item.poster} />
+          </FilmCardButton>
+        )}
         showsVerticalScrollIndicator={false}
       />
-      <TopGradient color={theme.colors.background} height={190} />
+      <Gradient
+        colors={[theme.colors.background, theme.colors.background]}
+        locations={[0.85, 1]}
+        opacity={[1, 0]}
+        height={Platform.OS === 'ios' ? 256 : 232}
+      />
     </ScreenTemplate>
   )
 }

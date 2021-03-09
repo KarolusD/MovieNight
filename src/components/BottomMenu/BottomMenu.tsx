@@ -1,23 +1,29 @@
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs'
 import { BlurView } from 'expo-blur'
 import React, { useContext } from 'react'
+import { Platform } from 'react-native'
 import styled, { ThemeContext } from 'styled-components/native'
+import matchBackground from '_utils/matchBackground'
 import BottomMenuIcon from './BottomMenuIcon/BottomMenuIcon'
 
-const BottomBlur = styled(BlurView)`
+const BottomBlur = styled(BlurView)<{ height: number }>`
+  height: ${({ height }) => `${height}px`};
   bottom: 0;
   left: 0;
   position: absolute;
-  right: 0;
+  width: 100%;
 `
 
-const BottomContainer = styled.View`
+const BottomContainer = styled.View<IBottomContainer>`
   align-items: flex-start;
-  background-color: ${({ theme }) => theme.colors.transparentPureBg};
+  background-color: ${({ background }) => background};
   flex-direction: row;
   justify-content: space-between;
-  height: 90px;
-  padding: 16px 24px;
+  height: ${({ height }) => `${height}px`};
+  padding: ${({ theme }) => `${theme.spacing.m} ${theme.spacing.xl}`};
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 `
 
 const Tab = styled.TouchableOpacity<{ isFocused: boolean }>`
@@ -25,10 +31,15 @@ const Tab = styled.TouchableOpacity<{ isFocused: boolean }>`
   background-color: ${({ theme, isFocused }) =>
     isFocused ? theme.colors.transparentInfo : 'transparent'};
   border-radius: 12px;
-  height: 40px;
+  height: 44px;
   justify-content: center;
-  width: 40px;
+  width: 44px;
 `
+
+interface IBottomContainer {
+  background: () => string
+  height: number
+}
 
 const BottomMenu: React.FC<BottomTabBarProps> = ({
   state,
@@ -37,17 +48,23 @@ const BottomMenu: React.FC<BottomTabBarProps> = ({
 }) => {
   const theme = useContext(ThemeContext)
   const focusedOptions = descriptors[state.routes[state.index].key].options
+  const height = Platform.OS === 'ios' ? 90 : 75
 
   if (focusedOptions?.tabBarVisible === false) {
     return null
   }
 
   return (
-    <BottomBlur
-      intensity={100}
-      tint={theme.mode === 'dark' ? 'dark' : 'default'}
-    >
-      <BottomContainer>
+    <>
+      <BottomBlur
+        height={height}
+        intensity={100}
+        tint={theme.mode === 'dark' ? 'dark' : 'default'}
+      />
+      <BottomContainer
+        background={() => matchBackground(Platform.OS, theme)}
+        height={height}
+      >
         {state.routes.map((route, index) => {
           const { options } = descriptors[route.key]
           const isFocused = state.index === index
@@ -86,7 +103,7 @@ const BottomMenu: React.FC<BottomTabBarProps> = ({
           )
         })}
       </BottomContainer>
-    </BottomBlur>
+    </>
   )
 }
 

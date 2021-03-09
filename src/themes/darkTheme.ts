@@ -1,6 +1,7 @@
+import { DefaultTheme } from 'styled-components'
 import sharedTheme from './sharedTheme'
 
-const darkTheme = {
+const darkTheme: DefaultTheme = {
   ...sharedTheme,
   mode: 'dark',
   colors: {
@@ -17,7 +18,7 @@ const darkTheme = {
     transparentBrand: 'rgba(252, 219, 103, 0.1)',
     transparentInfo: 'rgba(85, 186, 242, 0.15)',
     transparentBg: 'rgba(0, 0, 0, 0.5)',
-    transparentPureBg: 'rgba(0, 0, 0, 0.5)',
+    transparentPureBg: 'rgba(8, 8, 8, 0.5)',
     transparentSuccess: 'rgba(71, 195, 113, 0.1)',
     transparentWarning: 'rgba(223, 61, 61, 0.1)',
   },

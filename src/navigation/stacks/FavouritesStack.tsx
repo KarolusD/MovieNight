@@ -1,10 +1,10 @@
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 import { createStackNavigator } from '@react-navigation/stack'
 import React from 'react'
-import BackButton from '_components/BackButton/BackButton'
+
 import { headerOptions } from '_components/Header'
 import TopTabs from '_components/TopTabs/TopTabs'
-import FilmDetailsScreen from '_screens/FilmDetailsScreen'
+
 import MyLikesScreen from '_screens/MyLikesScreen'
 import RecommendedScreen from '_screens/RecommendedScreen'
 
@@ -46,16 +46,6 @@ const FavouritesStack: React.FC = () => {
         component={FavouritesTabStack}
         name="TopTabs"
         options={() => headerOptions({ title: 'Favourites' })}
-      />
-      <Stack.Screen
-        component={FilmDetailsScreen}
-        name="FilmDetails"
-        options={({ navigation, route }) =>
-          headerOptions({
-            title: route?.params?.title || 'Film details',
-            headerLeft: () => <BackButton goBack={() => navigation.goBack()} />,
-          })
-        }
       />
     </Stack.Navigator>
   )

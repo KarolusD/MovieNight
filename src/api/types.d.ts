@@ -1,4 +1,4 @@
-export type RecommendedT = {
+export interface IRecommended {
   _id: string
   title: string
   recommended: {
@@ -10,7 +10,7 @@ export type RecommendedT = {
   }[]
 }
 
-export type ActiveRecommendedT = {
+export interface IActiveRecommended {
   poster: string
   title: string
   type: string[]
@@ -18,7 +18,7 @@ export type ActiveRecommendedT = {
   longDescription: string
 }
 
-export type TrendingT = {
+export interface ITrending {
   _id: string
   title: string
   poster: string

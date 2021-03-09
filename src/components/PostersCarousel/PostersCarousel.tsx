@@ -4,7 +4,7 @@ import styled from 'styled-components/native'
 import Poster from '_components/Poster/Poster'
 import { useNavigation } from '@react-navigation/native'
 
-const PostersList = styled(FlatList as new () => FlatList<ItemT>)`
+const PostersList = styled(FlatList as new () => FlatList<IItem>)`
   padding-left: ${({ theme }) => theme.spacing.m};
 `
 
@@ -18,21 +18,21 @@ const posterStyle = {
   marginRight: 16,
 }
 
-type Props = {
+interface IItem {
+  title: string
+  poster: string
+}
+
+interface Props {
   data: Array<any>
   posterSize: 'small' | 'large' | 'medium'
   title: string
 }
 
-type ItemT = {
-  title: string
-  poster: string
-}
-
 const PostersCarousel: React.FC<Props> = ({ data, posterSize, title }) => {
   const navigation = useNavigation()
 
-  const PostersListRef = useRef<FlatList<ItemT> | null>(null)
+  const PostersListRef = useRef<FlatList<IItem> | null>(null)
 
   useEffect(() => {
     PostersListRef?.current?.scrollToOffset({ offset: 0, animated: true })
