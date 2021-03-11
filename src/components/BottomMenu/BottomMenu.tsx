@@ -31,6 +31,8 @@ const Tab = styled.TouchableOpacity<{ isFocused: boolean }>`
   background-color: ${({ theme, isFocused }) =>
     isFocused ? theme.colors.transparentInfo : 'transparent'};
   border-radius: 12px;
+  border: ${({ theme, isFocused }) =>
+    isFocused ? `1px solid ${theme.colors.info}` : '1px solid transparent'};
   height: 44px;
   justify-content: center;
   width: 44px;

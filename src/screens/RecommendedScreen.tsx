@@ -11,9 +11,18 @@ import Tabs from '_components/Tabs/Tabs'
 import { BottomNavigationProps } from '_navigation/BottomNavigation/types'
 import ScreenTemplate from '_templates/ScreenTemplate'
 
+const GRADIENT_HEIGHT = Platform.OS === 'ios' ? 256 : 228
+
 const RecommendedList = styled(FlatList as new () => FlatList<IItem>)`
   padding: ${({ theme }) => `0 ${theme.spacing.m}`};
   width: 100%;
+`
+
+const GradientWrapper = styled.View<{ height: number }>`
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: ${({ height }) => `${height}px`};
 `
 
 const TabsWrapper = styled.View<{ top: number }>`
@@ -81,12 +90,13 @@ const RecommendedScreen: React.FC<BottomNavigationProps<'Favourites'>> = () => {
         )}
         showsVerticalScrollIndicator={false}
       />
-      <Gradient
-        colors={[theme.colors.background, theme.colors.background]}
-        locations={[0.85, 1]}
-        opacity={[1, 0]}
-        height={Platform.OS === 'ios' ? 256 : 232}
-      />
+      <GradientWrapper height={GRADIENT_HEIGHT}>
+        <Gradient
+          colors={[theme.colors.background, theme.colors.background]}
+          locations={[0.85, 1]}
+          opacity={[1, 0]}
+        />
+      </GradientWrapper>
     </ScreenTemplate>
   )
 }

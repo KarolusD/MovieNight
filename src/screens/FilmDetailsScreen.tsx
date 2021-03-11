@@ -3,13 +3,14 @@ import { FlatList } from 'react-native-gesture-handler'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import styled, { ThemeContext } from 'styled-components/native'
 import { HeartIcon, TicketStarIcon, TimeCircleIcon } from '_assets/icons'
+import FilmActions from '_components/FilmActions/FilmActions'
 import Gradient from '_components/Gradient/Gradient'
 import IconCard from '_components/IconCard/IconCard'
 import MoreLessText from '_components/MoreLessText/MoreLessText'
 import Poster from '_components/Poster/Poster'
 import Tag from '_components/Tag/Tag'
 import { HeaderText } from '_components/Typography'
-import { MainNavigationProps } from '_navigation/BottomNavigation/types'
+import { MainNavigationProps } from '_navigation/MainNavigation/types'
 import ScreenTemplate from '_templates/ScreenTemplate'
 
 const ImageWrapper = styled.View<IInsets>`
@@ -41,13 +42,38 @@ const FilmInfo = styled(FlatList as new () => FlatList<IItem>)`
 
 const FilmDesc = styled.View`
   margin: ${({ theme }) => `0 ${theme.spacing.m}`};
-  /* width: 300px; */
+  margin-bottom: 100px;
 `
 
 const Tags = styled.View`
   flex-direction: row;
   margin-top: ${({ theme }) => theme.spacing.xs};
 `
+
+const FilmActionsWrapper = styled.View<{ bottom: number }>`
+  align-items: center;
+  position: absolute;
+  bottom: ${({ bottom }) => `${bottom}px`};
+  width: 100%;
+`
+
+const TopGradientWrapper = styled.View<{ height: number }>`
+  position: absolute;
+  top: 0;
+  height: ${({ height }) => `${height}px`};
+  width: 100%;
+`
+
+const BottomGradientWrapper = styled.View<{ height: number }>`
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: ${({ height }) => `${height}px`};
+`
+
+const contentContainerStyle = {
+  paddingRight: 16,
+}
 
 interface IInsets {
   insets: {
@@ -67,9 +93,14 @@ interface IItem {
 const FilmDetailsScreen: React.FC<MainNavigationProps<'FilmDetails'>> = ({
   route,
 }) => {
-  const [data, setData] = useState<IItem[]>([])
-
+  const { item } = route.params
   const theme = useContext(ThemeContext)
+  const insets = useSafeAreaInsets()
+
+  const TOP_GRADIENT_HEIGHT = 325 + insets.top
+  const BOTTOM_GRADIENT_HEIGHT = 80 + insets.bottom
+
+  const [data, setData] = useState<IItem[]>([])
 
   const tagBackground =
     theme.mode === 'light' ? theme.colors.background : theme.colors.pureBg
@@ -99,59 +130,75 @@ const FilmDetailsScreen: React.FC<MainNavigationProps<'FilmDetails'>> = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const { item } = route.params
-  const insets = useSafeAreaInsets()
-
   return (
-    <ScreenTemplate
-      background={backgroundColor}
-      container="scroll"
-      top={-insets.top}
-    >
-      <ImageWrapper insets={insets}>
-        <PosterContainer>
-          <Poster uri={item.poster} size="container" />
-        </PosterContainer>
-      </ImageWrapper>
-      <Gradient
-        colors={[backgroundColor, backgroundColor]}
-        locations={[0.5, 1]}
-        opacity={[0, 1]}
-        height={325 + insets.top}
-      />
-      <FilmMedia>
-        <HeaderText textAlign="center" type="h1">
-          Movie title
-        </HeaderText>
-        <Tags>
-          <Tag background={tagBackground} name="Crime" />
-          <Tag background={tagBackground} name="Drama" />
-          <Tag background={tagBackground} name="Thriller" />
-        </Tags>
-        <FilmInfo
-          data={data}
-          horizontal
-          renderItem={({ item }) => (
-            <IconCard icon={item.icon} title={item.title} stats={item.stats} />
-          )}
-          keyExtractor={(item) => item.title}
-          showsHorizontalScrollIndicator={false}
+    <>
+      <ScreenTemplate
+        background={backgroundColor}
+        container="scroll"
+        top={-insets.top}
+      >
+        <ImageWrapper insets={insets}>
+          <PosterContainer>
+            <Poster uri={item.poster} size="container" />
+          </PosterContainer>
+        </ImageWrapper>
+        <TopGradientWrapper height={TOP_GRADIENT_HEIGHT}>
+          <Gradient
+            colors={[backgroundColor, backgroundColor]}
+            locations={[0.4, 1]}
+            opacity={[0, 1]}
+          />
+        </TopGradientWrapper>
+        <FilmMedia>
+          <HeaderText textAlign="center" type="h1">
+            Movie title
+          </HeaderText>
+          <Tags>
+            <Tag background={tagBackground} name="Crime" />
+            <Tag background={tagBackground} name="Drama" />
+            <Tag background={tagBackground} name="Thriller" />
+          </Tags>
+          <FilmInfo
+            contentContainerStyle={contentContainerStyle}
+            data={data}
+            horizontal
+            renderItem={({ item }) => (
+              <IconCard
+                icon={item.icon}
+                title={item.title}
+                stats={item.stats}
+              />
+            )}
+            keyExtractor={(item) => item.title}
+            showsHorizontalScrollIndicator={false}
+          />
+        </FilmMedia>
+        <FilmDesc>
+          <MoreLessText numberOfLines={3}>
+            Fuga nobis ut alias voluptates omnis dolores. Id vitae distinctio
+            aut quibusdam distinctio et voluptates. Perferendis nesciunt
+            quibusdam. Et possimus sequi laudantium dolor cum numquam adipisci
+            voluptas. Itaque expedita tempore illum nulla. Deleniti dolor ut ut
+            omnis voluptas et cumque consequatur culpa. Veritatis iure quia ut
+            qui expedita. Distinctio consequatur ut est aut. Ut voluptates hic
+            et labore in. Corrupti temporibus quasi debitis maxime dolorum quia
+            reprehenderit sunt rerum. Ex dolor sit a sapiente laudantium
+            consequatur deserunt vel aspernatur. Vel cupiditate aut ipsam. Atque
+            quos et blanditiis.
+          </MoreLessText>
+        </FilmDesc>
+      </ScreenTemplate>
+      <BottomGradientWrapper height={BOTTOM_GRADIENT_HEIGHT}>
+        <Gradient
+          colors={[backgroundColor, backgroundColor]}
+          locations={[0, 0.16]}
+          opacity={[0, 1]}
         />
-      </FilmMedia>
-      <FilmDesc>
-        <MoreLessText numberOfLines={3}>
-          Fuga nobis ut alias voluptates omnis dolores. Id vitae distinctio aut
-          quibusdam distinctio et voluptates. Perferendis nesciunt quibusdam. Et
-          possimus sequi laudantium dolor cum numquam adipisci voluptas. Itaque
-          expedita tempore illum nulla. Deleniti dolor ut ut omnis voluptas et
-          cumque consequatur culpa. Veritatis iure quia ut qui expedita.
-          Distinctio consequatur ut est aut. Ut voluptates hic et labore in.
-          Corrupti temporibus quasi debitis maxime dolorum quia reprehenderit
-          sunt rerum. Ex dolor sit a sapiente laudantium consequatur deserunt
-          vel aspernatur. Vel cupiditate aut ipsam. Atque quos et blanditiis.
-        </MoreLessText>
-      </FilmDesc>
-    </ScreenTemplate>
+      </BottomGradientWrapper>
+      <FilmActionsWrapper bottom={insets.bottom + 16}>
+        <FilmActions />
+      </FilmActionsWrapper>
+    </>
   )
 }
 

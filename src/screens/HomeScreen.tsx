@@ -45,7 +45,11 @@ const HomeScreen: React.FC<BottomNavigationProps<'Home'>> = ({
   }, [activeTab])
 
   return (
-    <ScreenTemplate container="scroll" top={headerHeight + 24}>
+    <ScreenTemplate
+      container="scroll"
+      top={headerHeight + 24}
+      paddingBottom={200}
+    >
       <Section
         title="Recommended"
         displayButton={() => (

@@ -10,6 +10,14 @@ import ScreenTemplate from '_templates/ScreenTemplate'
 
 const { width } = Dimensions.get('window')
 const POSTER_WIDTH = 74
+const GRADIENT_HEIGHT = Platform.OS === 'ios' ? 188 : 164
+
+const GradientWrapper = styled.View<{ height: number }>`
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: ${({ height }) => `${height}px`};
+`
 
 interface IItem {
   _id: string
@@ -66,12 +74,13 @@ const MyLikesScreen: React.FC<BottomNavigationProps<'Favourites'>> = () => {
           </PosterButton>
         )}
       />
-      <Gradient
-        colors={[theme.colors.background, theme.colors.background]}
-        locations={[0.85, 1]}
-        opacity={[1, 0]}
-        height={Platform.OS === 'ios' ? 188 : 172}
-      />
+      <GradientWrapper height={GRADIENT_HEIGHT}>
+        <Gradient
+          colors={[theme.colors.background, theme.colors.background]}
+          locations={[0.85, 1]}
+          opacity={[1, 0]}
+        />
+      </GradientWrapper>
     </ScreenTemplate>
   )
 }

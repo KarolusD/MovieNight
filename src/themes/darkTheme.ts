@@ -16,11 +16,11 @@ const darkTheme: DefaultTheme = {
     gray: '#9A9A9A',
     text: '#F2F2F2',
     transparentBrand: 'rgba(252, 219, 103, 0.1)',
-    transparentInfo: 'rgba(85, 186, 242, 0.15)',
+    transparentInfo: '#081318',
     transparentBg: 'rgba(0, 0, 0, 0.5)',
     transparentPureBg: 'rgba(8, 8, 8, 0.5)',
-    transparentSuccess: 'rgba(71, 195, 113, 0.1)',
-    transparentWarning: 'rgba(223, 61, 61, 0.1)',
+    transparentSuccess: 'rgba(71, 195, 113, 0.08)',
+    transparentWarning: 'rgba(223, 61, 61, 0.08)',
   },
 }
 

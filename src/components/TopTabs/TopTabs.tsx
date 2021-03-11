@@ -39,6 +39,7 @@ const TopTab = styled.TouchableOpacity`
 const Indicator = styled.View`
   border-radius: 22px;
   background-color: ${({ theme }) => theme.colors.transparentInfo};
+  border: ${({ theme }) => `1px solid ${theme.colors.info}`};
   height: 44px;
   left: 4px;
   position: absolute;

@@ -4,14 +4,7 @@ import BackButton from '_components/BackButton/BackButton'
 import { headerOptions } from '_components/Header'
 import BottomNavigation from '_navigation/BottomNavigation/BottomNavigation'
 import FilmDetailsScreen from '_screens/FilmDetailsScreen'
-
-type MainNavigationParams = {
-  BottomNavigation: undefined
-  FilmDetails: {
-    title?: string
-    item: any
-  }
-}
+import { MainNavigationParams } from './types'
 
 const Stack = createStackNavigator<MainNavigationParams>()
 

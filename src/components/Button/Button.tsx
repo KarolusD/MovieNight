@@ -3,13 +3,15 @@ import styled from 'styled-components/native'
 import { ButtonText } from '_components/Typography'
 
 const ButtonContainer = styled.TouchableOpacity<ButtonContainerProps>`
+  align-items: center;
   background-color: ${({ backgroundColor }) =>
     backgroundColor || 'transparent'};
   border-color: ${({ borderColor }) => borderColor || 'transparent'};
   border-radius: 10px;
-  height: ${({ type }) => (type === 'primary' ? '56px' : 'auto')};
+  justify-content: center;
+  height: ${({ type }) => (type !== 'link' ? '56px' : 'auto')};
   padding: ${({ type }) =>
-    type === 'primary' || type === 'link' ? 0 : '10px 16px'};
+    type === 'primary' || type === 'link' ? '4px 0' : '10px 24px'};
   width: ${({ type }) => (type === 'primary' ? '100%' : 'auto')};
 `
 
@@ -17,7 +19,7 @@ type ButtonContainerProps = {
   backgroundColor?: string
   borderColor?: string
   onPress: () => void
-  type: 'primary' | 'link'
+  type?: 'primary' | 'link'
 }
 
 type ButtonTextProps = {

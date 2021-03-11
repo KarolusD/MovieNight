@@ -15,6 +15,8 @@ const TabContainer = styled.TouchableOpacity<{ isActive: boolean }>`
   background-color: ${({ isActive, theme }) =>
     isActive ? theme.colors.transparentInfo : theme.colors.pureBg};
   border-radius: 22px;
+  border: ${({ isActive, theme }) =>
+    isActive ? `1px solid ${theme.colors.info}` : '1px solid transparent'};
   display: flex;
   height: 44px;
   justify-content: center;

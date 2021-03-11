@@ -1,8 +1,12 @@
 import React, { useContext, useState } from 'react'
-import { Text } from 'react-native-svg'
 import { ThemeContext } from 'styled-components'
 import Button from '_components/Button/Button'
 import { ParagraphText } from '_components/Typography'
+import styled from 'styled-components/native'
+
+const Wrapper = styled.View`
+  align-items: flex-start;
+`
 
 interface Props {
   children: React.ReactNode
@@ -15,7 +19,7 @@ const MoreLessText: React.FC<Props> = ({ children, numberOfLines }) => {
   const [showMore, setShowMore] = useState(true)
 
   return isTextCollapsed ? (
-    <Text>
+    <Wrapper>
       <ParagraphText numberOfLines={showMore ? numberOfLines : 0}>
         {children}
       </ParagraphText>
@@ -26,7 +30,7 @@ const MoreLessText: React.FC<Props> = ({ children, numberOfLines }) => {
         title={showMore ? 'Show more' : 'Less'}
         type="link"
       />
-    </Text>
+    </Wrapper>
   ) : (
     <ParagraphText
       onTextLayout={({ nativeEvent: { lines } }) => {

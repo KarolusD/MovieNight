@@ -13,6 +13,7 @@ interface Props {
   children: React.ReactNode
   top?: number
   container?: string
+  paddingBottom?: number
 }
 
 const ScreenTemplate: React.FC<Props> = ({
@@ -20,18 +21,22 @@ const ScreenTemplate: React.FC<Props> = ({
   children,
   container,
   top,
+  paddingBottom,
 }) => {
   const theme = useContext(ThemeContext)
 
   const contentContainerStyle = {
     top: top ?? (Platform.OS === 'ios' ? 116 : 100),
-    paddingBottom: 120,
+    paddingBottom: paddingBottom || 0,
   }
 
   const renderContainer = () => {
     if (container === 'scroll') {
       return (
-        <ScrollContainer contentContainerStyle={contentContainerStyle}>
+        <ScrollContainer
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={contentContainerStyle}
+        >
           {children}
         </ScrollContainer>
       )
