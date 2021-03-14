@@ -12,7 +12,7 @@ const ActionsWrapper = styled.View`
   justify-content: center;
 `
 
-const DislikeButton = styled.TouchableOpacity`
+const DislikeButton = styled.TouchableOpacity<{ activeAction?: string }>`
   align-items: center;
   background-color: ${({ theme }) => theme.colors.transparentWarning};
   border-radius: 12px;
@@ -22,7 +22,7 @@ const DislikeButton = styled.TouchableOpacity`
   width: 56px;
 `
 
-const LikeButton = styled.TouchableOpacity`
+const LikeButton = styled.TouchableOpacity<{ activeAction?: string }>`
   align-items: center;
   background-color: ${({ theme }) => theme.colors.transparentSuccess};
   border-radius: 12px;
@@ -32,13 +32,15 @@ const LikeButton = styled.TouchableOpacity`
   width: 56px;
 `
 
-interface Props {}
+interface Props {
+  activeAction?: string
+}
 
-const FilmActions: React.FunctionComponent<Props> = (props) => {
+const FilmActions: React.FunctionComponent<Props> = ({ activeAction }) => {
   const theme = useContext(ThemeContext)
   return (
     <ActionsWrapper>
-      <DislikeButton>
+      <DislikeButton activeAction={activeAction}>
         <Image
           height={40}
           width={40}
@@ -47,6 +49,9 @@ const FilmActions: React.FunctionComponent<Props> = (props) => {
       </DislikeButton>
       <Button
         backgroundColor={theme.colors.transparentInfo}
+        borderColor={
+          activeAction === 'ALREADY_SEEN' ? theme.colors.info : 'transparent'
+        }
         color={theme.colors.info}
         onPress={() => console.log('Already seen!')}
         title="Already seen"

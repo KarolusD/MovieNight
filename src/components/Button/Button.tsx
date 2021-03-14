@@ -6,7 +6,8 @@ const ButtonContainer = styled.TouchableOpacity<ButtonContainerProps>`
   align-items: center;
   background-color: ${({ backgroundColor }) =>
     backgroundColor || 'transparent'};
-  border-color: ${({ borderColor }) => borderColor || 'transparent'};
+  border: ${({ borderColor }) =>
+    borderColor ? `1px solid ${borderColor}` : '1px solid transparent'};
   border-radius: 10px;
   justify-content: center;
   height: ${({ type }) => (type !== 'link' ? '56px' : 'auto')};
