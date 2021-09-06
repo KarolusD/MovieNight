@@ -2,7 +2,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/KarolusD/portfolio2021/src/assets/images/readme-logo.png">
-    <img src="src/assets/images/readme-logo.png" alt="Logo" width="80" height="80">
+    <img src="src/assets/images/readme-logo.png" alt="Logo" width="128" height="128">
   </a>
 
   <h3 align="center">Movie Night</h3>
@@ -39,7 +39,7 @@
 
 ## About The Project
 
-[![Karolus Development Screen Shot][product-screenshot]]
+![Karolus Development Screen Shot][product-screenshot]
 
 Would you like to watch a movie this night? Alone or with your friends? Are you not sure what to watch? This is a perfect example when this app might be helpful. The project is still in development phase but the idea behind it is to recommend movies based on your previous likes. You will be able to create rooms with your friends to have shared recommendations too.
 
